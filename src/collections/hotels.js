@@ -10,7 +10,7 @@ export default class Hotels {
     return this.transport
       .send('GET', this.endpoint, {filter: filters})
       .then(response => {
-        this.storage.dispatch({type: 'HOTELS_BATCH', payload: response.data});
+        this.storage.dispatch({type: 'HOTELS_LOAD', payload: response.data});
         return response.data;
       });
   }

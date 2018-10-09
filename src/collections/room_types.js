@@ -10,7 +10,7 @@ export default class RoomTypes {
     return this.transport
       .send('GET', this.endpoint, {filter: filters})
       .then(response => {
-        this.storage.dispatch({type: 'ROOM_TYPES_BATCH', payload: response.data});
+        this.storage.dispatch({type: 'ROOM_TYPES_LOAD', payload: response.data});
         return response.data;
       });
   }
