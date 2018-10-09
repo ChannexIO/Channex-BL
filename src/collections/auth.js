@@ -2,6 +2,7 @@ export default class Auth {
   constructor(container) {
     this.settings = container.settings;
     this.transport = container.transport;
+    this.storage = container.storage;
   }
 
   signIn(attrs) {
@@ -10,6 +11,7 @@ export default class Auth {
       .then(response => {
         if (response.data.attributes.token) {
           this.transport.registerAccessToken(response.data.attributes.token);
+          this.storage.dispatch({type: 'SESSION_ADD', payload: response.data.attributes});
         }
 
         return response;

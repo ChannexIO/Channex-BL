@@ -2,13 +2,17 @@ export default class RoomTypes {
   constructor(container) {
     this.settings = container.settings;
     this.transport = container.transport;
+    this.storage = container.storage;
     this.endpoint = 'room_types';
   }
 
   list(filters = {}) {
     return this.transport
       .send('GET', this.endpoint, {filter: filters})
-      .then(response => response.data);
+      .then(response => {
+        this.storage.dispatch({type: 'ROOM_TYPES_BATCH', payload: response.data});
+        return response.data;
+      });
   }
 
   find(id) {

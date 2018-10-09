@@ -1,5 +1,6 @@
 import Collections from './collections';
 import HTTPTransport from './transport/http';
+import Storage from './storage';
 
 const defaultOptions = {
   protocol: 'http',
@@ -9,6 +10,7 @@ const defaultOptions = {
 export default class ChannexBL {
   constructor(opts = {}) {
     this.settings = Object.assign(defaultOptions, opts);
+    this.storage = Storage({});
     this.transport = new HTTPTransport(this.settings);
     this.connectModules();
   }
