@@ -8,21 +8,18 @@ export default class Hotels {
   list() {
     return this.transport
       .send('GET', this.endpoint, {})
-      .then(response => response.data)
-      .catch(error => error);
+      .then(response => response.data);
   }
 
   find(id) {
     return this.transport
       .send('GET', `${this.endpoint}/${id}`)
-      .then(response => response)
-      .catch(error => error);
+      .then(response => response);
   }
 
   create(attrs) {
     return this.transport
       .send('POST', this.endpoint)
-      .then(response => response)
-      .catch(error => error);
+      .then(response => response);
   }
 }

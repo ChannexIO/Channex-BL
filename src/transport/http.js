@@ -1,3 +1,5 @@
+import stringifyArguments from '../utils/stringify_arguments';
+
 export default class HTTPTransport {
   constructor(settings) {
     this.settings = settings;
@@ -51,22 +53,7 @@ export default class HTTPTransport {
   }
 
   _url(endpoint, params = null) {
-    return `${this.settings.protocol}://${this.settings.server}/api/${endpoint}${this._prepareParams(params)}`;
-  }
-
-  // TODO: Change this logic to support nested arguments
-  _prepareParams(params) {
-    let query;
-
-    if (params) {
-      query = '?' + Object.keys(params)
-        .map(k => `filter[${encodeURIComponent(k)}]` + '=' + encodeURIComponent(params[k]))
-        .join('&');
-    } else {
-      query = '';
-    }
-
-    return query;
+    return `${this.settings.protocol}://${this.settings.server}/api/${endpoint}${stringifyArguments(params)}`;
   }
 
   _prepareAnswer(response) {

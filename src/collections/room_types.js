@@ -7,29 +7,25 @@ export default class RoomTypes {
 
   list(filters = {}) {
     return this.transport
-      .send('GET', this.endpoint, filters)
-      .then(response => response.data)
-      .catch(error => error);
+      .send('GET', this.endpoint, {filter: filters})
+      .then(response => response.data);
   }
 
   find(id) {
     return this.transport
       .send('GET', `${this.endpoint}/${id}`)
-      .then(response => response)
-      .catch(error => error);
+      .then(response => response);
   }
 
   create(attrs) {
     return this.transport
       .send('POST', this.endpoint, {room_type: attrs})
-      .then(response => response)
-      .catch(error => error);
+      .then(response => response);
   }
 
   update(attrs) {
     return this.transport
       .send('PUT', this.endpoint, {room_type: attrs})
-      .then(response => response)
-      .catch(error => error);
+      .then(response => response);
   }
 }

@@ -13,14 +13,12 @@ export default class Auth {
         }
 
         return response;
-      })
-      .catch(error => error);
+      });
   }
 
   signUp(attrs) {
-    this.transport
+    return this.transport
       .send('POST', 'sign_up', {user: attrs})
-      .then(response => response)
-      .catch(error => error);
+      .then(response => response);
   }
 }
