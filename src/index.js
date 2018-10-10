@@ -7,18 +7,21 @@ const defaultOptions = {
   server: 'localhost:4000'
 };
 
-function connectCollections(target) {
-  Object.values(Collections)
-    .forEach(function (Module) {
-      target[Module.name] = new Module(target);
-    });
-}
-
 export default class ChannexBL {
   constructor(opts = {}) {
     this.settings = Object.assign(defaultOptions, opts);
     this.storage = Storage({});
     this.transport = new HTTPTransport(this.settings);
-    connectCollections(this);
+
+    this.Auth = new Collections.Auth(this);
+    this.Hotels = new Collections.Hotels(this);
+    this.RoomTypes = new Collections.RoomTypes(this);
+    this.RatePlans = new Collections.RatePlans(this);
+    this.Channels = new Collections.Channels(this);
+    this.EmailTemplates = new Collections.EmailTemplates(this);
+    this.Users = new Collections.Users(this);
+    this.WhiteLabelPartners = new Collections.WhiteLabelPartners(this);
+    this.WhiteLabelDomains = new Collections.WhiteLabelDomains(this);
+    this.WhiteLabelEmailSettings = new Collections.WhiteLabelEmailSettings(this);
   }
 }
