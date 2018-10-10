@@ -11,7 +11,7 @@ export default class Auth {
       .then(response => {
         if (response.data.attributes.token) {
           this.transport.registerAccessToken(response.data.attributes.token);
-          this.storage.dispatch({type: 'SESSION_ADD', payload: response.data.attributes});
+          this.storage.sessionAdd(response.data.attributes);
         }
 
         return response;
@@ -21,6 +21,13 @@ export default class Auth {
   signUp(attrs) {
     return this.transport
       .send('POST', 'sign_up', {user: attrs})
-      .then(response => response);
+      .then(response => {
+        if (response.data.attributes.token) {
+          this.transport.registerAccessToken(response.data.attributes.token);
+          this.storage.sessionAdd(response.data.attributes);
+        }
+
+        return response;
+      });
   }
 }

@@ -10,7 +10,7 @@ export default class RoomTypes {
     return this.transport
       .send('GET', this.endpoint, {filter: filters})
       .then(response => {
-        this.storage.dispatch({type: 'ROOM_TYPES_LOAD', payload: response.data});
+        this.storage.roomTypesLoad(response.data);
         return response.data;
       });
   }
@@ -18,18 +18,27 @@ export default class RoomTypes {
   find(id) {
     return this.transport
       .send('GET', `${this.endpoint}/${id}`)
-      .then(response => response);
+      .then(response => {
+        this.storage.roomTypesAdd(response.data);
+        return response;
+      });
   }
 
   create(attrs) {
     return this.transport
       .send('POST', this.endpoint, {room_type: attrs})
-      .then(response => response);
+      .then(response => {
+        this.storage.roomTypesAdd(response.data);
+        return response;
+      });
   }
 
   update(attrs) {
     return this.transport
       .send('PUT', this.endpoint, {room_type: attrs})
-      .then(response => response);
+      .then(response => {
+        this.storage.roomTypesAdd(response.data);
+        return response;
+      });
   }
 }

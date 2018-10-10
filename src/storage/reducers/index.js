@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
 
-import session from './session';
-import hotels from './hotels';
-import roomTypes from './room_types';
+import sessionReducer from './session_reducer';
+import hotelsReducer from './hotels_reducer';
+import roomTypesReducer from './room_types_reducer';
 
 const rootReducer = combineReducers({
-  session,
-  hotels,
-  roomTypes
+  session: sessionReducer,
+  hotels: hotelsReducer,
+  roomTypes: roomTypesReducer
 });
 
 export default rootReducer;

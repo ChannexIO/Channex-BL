@@ -10,7 +10,7 @@ export default class Hotels {
     return this.transport
       .send('GET', this.endpoint, {filter: filters})
       .then(response => {
-        this.storage.dispatch({type: 'HOTELS_LOAD', payload: response.data});
+        this.storage.hotelsLoad(response.data);
         return response.data;
       });
   }
@@ -18,12 +18,18 @@ export default class Hotels {
   find(id) {
     return this.transport
       .send('GET', `${this.endpoint}/${id}`)
-      .then(response => response);
+      .then(response => {
+        this.storage.hotelsAdd(response.data);
+        return response;
+      });
   }
 
   create(attrs) {
     return this.transport
       .send('POST', this.endpoint)
-      .then(response => response);
+      .then(response => {
+        this.storage.hotelsAdd(response.data);
+        return response;
+      });
   }
 }

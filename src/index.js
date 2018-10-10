@@ -12,10 +12,10 @@ export default class ChannexBL {
     this.settings = Object.assign(defaultOptions, opts);
     this.storage = Storage({});
     this.transport = new HTTPTransport(this.settings);
-    this.connectModules();
+    this.connectCollections();
   }
 
-  connectModules() {
+  connectCollections() {
     const self = this;
 
     Object.values(Collections)
