@@ -1,3 +1,5 @@
+import {Socket} from 'phoenix-channels';
+
 import Collections from './collections';
 import HTTPTransport from './transport/http';
 import Storage from './storage';
@@ -7,14 +9,32 @@ const defaultOptions = {
   server: 'localhost:4000'
 };
 
+function initSocket(target) {
+  target.socket = new Socket(`ws://${target.settings.server}/socket`);
+
+  target.socket.connect();
+
+  let channel = target.socket.channel('room:lobby', {});
+
+  channel.join()
+    .receive('ok', resp => { console.log('Joined successfully', resp); })
+    .receive('error', resp => { console.log('Unable to join', resp); });
+
+  channel.on('new_time', msg => {
+    console.log(`The timer is: ${msg.time}`);
+  });
+}
+
 export default class ChannexBL {
   constructor(opts = {}) {
     this.storage = Storage({});
     this.settings = Object.assign(defaultOptions, opts);
     this.transport = new HTTPTransport(
       this.settings,
-      this.storage.getState().session.token
+      this.storage.getState().session ? this.storage.getState().session.token : null
     );
+
+    initSocket(this);
 
     this.Auth = new Collections.Auth(this);
     this.Hotels = new Collections.Hotels(this);
