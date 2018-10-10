@@ -7,20 +7,18 @@ const defaultOptions = {
   server: 'localhost:4000'
 };
 
+function connectCollections(target) {
+  Object.values(Collections)
+    .forEach(function (Module) {
+      target[Module.name] = new Module(target);
+    });
+}
+
 export default class ChannexBL {
   constructor(opts = {}) {
     this.settings = Object.assign(defaultOptions, opts);
     this.storage = Storage({});
     this.transport = new HTTPTransport(this.settings);
-    this.connectCollections();
-  }
-
-  connectCollections() {
-    const self = this;
-
-    Object.values(Collections)
-      .forEach(function (Module) {
-        self[Module.name] = new Module(self);
-      });
+    connectCollections(this);
   }
 }
