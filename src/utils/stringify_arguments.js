@@ -48,7 +48,6 @@ function stringifyArguments(args) {
   if (args && typeof args === 'object' && typeof args.length === 'undefined') {
     let parsedArgs = parseArgs(args);
 
-    console.log(parsedArgs);
     query = parsedArgs.length > 1 ? `?${parseArgs(args)}` : '';
   } else {
     query = '';

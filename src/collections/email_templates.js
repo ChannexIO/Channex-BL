@@ -1,16 +1,16 @@
-export default class RoomTypes {
+export default class EmailTemplates {
   constructor(container) {
     this.settings = container.settings;
     this.transport = container.transport;
     this.storage = container.storage;
-    this.endpoint = 'room_types';
+    this.endpoint = 'email_templates';
   }
 
   list(filters = {}) {
     return this.transport
       .send('GET', this.endpoint, {filter: filters})
       .then(response => {
-        this.storage.roomTypesLoad(response.data);
+        this.storage.emailTemplatesLoad(response.data);
         return response.data;
       });
   }
@@ -19,7 +19,7 @@ export default class RoomTypes {
     return this.transport
       .send('GET', `${this.endpoint}/${id}`)
       .then(response => {
-        this.storage.roomTypesAdd(response.data);
+        this.storage.emailTemplatesAdd(response.data);
         return response;
       });
   }
@@ -28,7 +28,7 @@ export default class RoomTypes {
     return this.transport
       .send('POST', this.endpoint, {room_type: attrs})
       .then(response => {
-        this.storage.roomTypesAdd(response.data);
+        this.storage.emailTemplatesAdd(response.data);
         return response;
       });
   }
@@ -37,7 +37,7 @@ export default class RoomTypes {
     return this.transport
       .send('PUT', this.endpoint, {room_type: attrs})
       .then(response => {
-        this.storage.roomTypesAdd(response.data);
+        this.storage.emailTemplatesAdd(response.data);
         return response;
       });
   }
