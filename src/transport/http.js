@@ -1,8 +1,9 @@
 import stringifyArguments from '../utils/stringify_arguments';
 
 export default class HTTPTransport {
-  constructor(settings) {
+  constructor(settings, token = null) {
     this.settings = settings;
+    this.token = token || null;
   }
 
   send(method, endpoint, data) {

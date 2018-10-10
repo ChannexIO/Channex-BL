@@ -1,3 +1,4 @@
+export const STORAGE_CACHE_KEY = 'CHANNEX_BL_CACHE';
 export const SESSION_ADD = 'SESSION_ADD';
 
 export const HOTELS_LOAD = 'HOTELS_LOAD';

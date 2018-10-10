@@ -9,9 +9,12 @@ const defaultOptions = {
 
 export default class ChannexBL {
   constructor(opts = {}) {
-    this.settings = Object.assign(defaultOptions, opts);
     this.storage = Storage({});
-    this.transport = new HTTPTransport(this.settings);
+    this.settings = Object.assign(defaultOptions, opts);
+    this.transport = new HTTPTransport(
+      this.settings,
+      this.storage.getState().session.token
+    );
 
     this.Auth = new Collections.Auth(this);
     this.Hotels = new Collections.Hotels(this);
