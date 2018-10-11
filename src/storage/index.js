@@ -20,9 +20,11 @@ function assignActions(target) {
 }
 
 const Storage = preloadedState => {
+  let savedState = localStorage.getItem(STORAGE_CACHE_KEY);
+
   let storage = createStore(
     rootReducer,
-    JSON.parse(localStorage.getItem(STORAGE_CACHE_KEY)) || preloadedState || {},
+    savedState ? JSON.parse(savedState) : preloadedState,
     compose(
       applyMiddleware(localStorageCache),
       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

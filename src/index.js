@@ -1,5 +1,5 @@
 import Collections from './collections';
-import HTTPTransport from './transport/http';
+import {HTTPTransport, WSTransport} from './transport';
 import Storage from './storage';
 
 const defaultOptions = {
@@ -7,14 +7,19 @@ const defaultOptions = {
   server: 'localhost:4000'
 };
 
+function getToken(storage) {
+  return storage.session ? storage.session.token : null;
+}
+
 export default class ChannexBL {
   constructor(opts = {}) {
     this.storage = Storage({});
     this.settings = Object.assign(defaultOptions, opts);
-    this.transport = new HTTPTransport(
-      this.settings,
-      this.storage.getState().session.token
-    );
+
+    // Register transport methods
+    this.http = new HTTPTransport(this.settings, getToken(this.storage.getState()));
+    this.ws = new WSTransport(this.settings, getToken(this.storage.getState()));
+    this.transport = this.settings.protocol === 'ws' ? this.ws : this.http;
 
     this.Auth = new Collections.Auth(this);
     this.Hotels = new Collections.Hotels(this);
