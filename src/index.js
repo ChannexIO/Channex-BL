@@ -15,9 +15,11 @@ export default class ChannexBL {
   constructor(opts = {}) {
     this.storage = Storage({});
     this.settings = Object.assign(defaultOptions, opts);
+
+    // Register transport methods
     this.http = new HTTPTransport(this.settings, getToken(this.storage.getState()));
     this.ws = new WSTransport(this.settings, getToken(this.storage.getState()));
-    this.transport = this.http;
+    this.transport = this.settings.protocol === 'ws' ? this.ws : this.http;
 
     this.Auth = new Collections.Auth(this);
     this.Hotels = new Collections.Hotels(this);
