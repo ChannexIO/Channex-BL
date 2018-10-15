@@ -1,4 +1,5 @@
-import { createStore, compose, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import localStorageCache from './middlewares/local_storage_cache';
 
 import actions from './actions';
@@ -25,9 +26,8 @@ const Storage = preloadedState => {
   let storage = createStore(
     rootReducer,
     savedState ? JSON.parse(savedState) : preloadedState,
-    compose(
-      applyMiddleware(localStorageCache),
-      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    composeWithDevTools(
+      applyMiddleware(localStorageCache)
     )
   );
 
