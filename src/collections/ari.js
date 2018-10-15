@@ -1,12 +1,12 @@
+let transport;
+
 export default class ARI {
   constructor(container) {
-    this.settings = container.settings;
-    this.transport = container.transport;
-    this.storage = container.storage;
+    transport = container.transport;
   }
 
   get(filters) {
-    return this.transport
+    return transport
       .send('GET', 'restrictions', {filter: filters})
       .then(response => response);
   }
