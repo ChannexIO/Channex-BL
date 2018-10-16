@@ -28,7 +28,7 @@ export default class WhiteLabelEmailSettings {
 
   create(attrs) {
     return transport
-      .send('POST', ENDPOINT, {room_type: attrs})
+      .send('POST', ENDPOINT, {wl_email_setting: attrs})
       .then(response => {
         storage.whiteLabelEmailSettingsAdd(response.data);
         return response;
@@ -37,7 +37,7 @@ export default class WhiteLabelEmailSettings {
 
   update(attrs) {
     return transport
-      .send('PUT', ENDPOINT, {room_type: attrs})
+      .send('PUT', ENDPOINT, {wl_email_setting: attrs})
       .then(response => {
         storage.whiteLabelEmailSettingsAdd(response.data);
         return response;

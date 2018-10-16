@@ -28,7 +28,7 @@ export default class Hotels {
 
   create(attrs) {
     return transport
-      .send('POST', ENDPOINT)
+      .send('POST', ENDPOINT, {hotel: attrs})
       .then(response => {
         storage.hotelsAdd(response.data);
         return response;

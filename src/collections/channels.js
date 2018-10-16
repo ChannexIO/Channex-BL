@@ -28,7 +28,7 @@ export default class Channels {
 
   create(attrs) {
     return transport
-      .send('POST', ENDPOINT, {room_type: attrs})
+      .send('POST', ENDPOINT, {channel: attrs})
       .then(response => {
         storage.channelsAdd(response.data);
         return response;
@@ -37,7 +37,7 @@ export default class Channels {
 
   update(attrs) {
     return transport
-      .send('PUT', ENDPOINT, {room_type: attrs})
+      .send('PUT', ENDPOINT, {channel: attrs})
       .then(response => {
         storage.channelsAdd(response.data);
         return response;

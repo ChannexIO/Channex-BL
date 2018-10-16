@@ -28,7 +28,7 @@ export default class Users {
 
   create(attrs) {
     return transport
-      .send('POST', ENDPOINT, {room_type: attrs})
+      .send('POST', ENDPOINT, {user: attrs})
       .then(response => {
         storage.usersAdd(response.data);
         return response;
@@ -37,7 +37,7 @@ export default class Users {
 
   update(attrs) {
     return transport
-      .send('PUT', ENDPOINT, {room_type: attrs})
+      .send('PUT', ENDPOINT, {user: attrs})
       .then(response => {
         storage.usersAdd(response.data);
         return response;

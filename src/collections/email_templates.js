@@ -28,7 +28,7 @@ export default class EmailTemplates {
 
   create(attrs) {
     return transport
-      .send('POST', ENDPOINT, {room_type: attrs})
+      .send('POST', ENDPOINT, {email_template: attrs})
       .then(response => {
         storage.emailTemplatesAdd(response.data);
         return response;
@@ -37,7 +37,7 @@ export default class EmailTemplates {
 
   update(attrs) {
     return transport
-      .send('PUT', ENDPOINT, {room_type: attrs})
+      .send('PUT', ENDPOINT, {email_template: attrs})
       .then(response => {
         storage.emailTemplatesAdd(response.data);
         return response;
