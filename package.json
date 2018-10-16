@@ -12,11 +12,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/buuqitcom/client_bl.git"
+    "url": "https://github.com/ChannexIO/Channex-BL.git"
   },
   "author": "Andrew Yudin",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/buuqitcom/client_bl",
+  "homepage": "https://github.com/ChannexIO/Channex-BL",
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.51",
     "@babel/core": "^7.0.0-beta.51",
