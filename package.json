@@ -7,7 +7,7 @@
     "build": "webpack --env dev && webpack --env build && npm run test",
     "dev": "webpack --progress --colors --watch --env dev",
     "test": "jest",
-    "test:watch": "mocha --require babel-register --colors -w ./test/*.spec.js",
+    "test:watch": "jest --watch",
     "start": "webpack-dev-server --open"
   },
   "repository": {
