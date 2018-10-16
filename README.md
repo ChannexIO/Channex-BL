@@ -6,7 +6,7 @@ This repo contains methods to communicate with Channex.io API, redux-based clien
 
 Add into your `package.json` file into `dependencies` section:
 ```
-"channex-bl": "git+ssh://git@bitbucket.com:buuqitcom/client_bl.git"
+"channex-bl": "^0.1.0"
 ```
 
 Be sure, you have access to client_bl repo and your cert is not require passphrase on ssh request.
