@@ -48,6 +48,9 @@ const config = {
   },
   devServer: {
     contentBase: './lib'
+  },
+  externals: {
+    'websocket': 'window.WebSocket'
   }
 };
 
