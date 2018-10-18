@@ -1,4 +1,6 @@
-# Channex.io Business Logic library (ChannexBL)
+# ChannexBL - Channex.io Client Library
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4ff9954f7eec4740999496daca1bb327)](https://www.codacy.com/app/Judis/Channex-BL?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ChannexIO/Channex-BL&amp;utm_campaign=Badge_Grade)
 
 This repo contains methods to communicate with Channex.io API, redux-based client side persistent storage and model validation methods.
 

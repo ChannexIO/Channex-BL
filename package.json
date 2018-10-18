@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --env dev && webpack --env build && npm run test",
     "dev": "webpack --progress --colors --watch --env dev",
-    "test": "jest",
+    "test": "jest --colors",
     "test:watch": "jest --watch",
     "start": "webpack-dev-server --open"
   },
@@ -27,6 +27,7 @@
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-env": "^7.0.0-beta.3",
     "babel-register": "^7.0.0-beta.3",
+    "codacy-coverage": "^3.1.0",
     "eslint": "^5.0.1",
     "eslint-loader": "^2.0.0",
     "jest": "^23.6.0",
@@ -43,5 +44,11 @@
   "dependencies": {
     "phoenix-channels": "^1.0.0",
     "redux": "^4.0.0"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ]
   }
 }
