@@ -34,4 +34,13 @@ export default class Hotels {
         return response;
       });
   }
+
+  update(attrs) {
+    return transport
+      .send('PUT', `${ENDPOINT}/${attrs.id}`, {hotel: attrs})
+      .then(response => {
+        storage.hotelsAdd(response.data);
+        return response;
+      });
+  }
 }

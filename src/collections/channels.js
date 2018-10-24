@@ -37,7 +37,7 @@ export default class Channels {
 
   update(attrs) {
     return transport
-      .send('PUT', ENDPOINT, {channel: attrs})
+      .send('PUT', `${ENDPOINT}/${attrs.id}`, {channel: attrs})
       .then(response => {
         storage.channelsAdd(response.data);
         return response;

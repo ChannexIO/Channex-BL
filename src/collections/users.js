@@ -37,7 +37,7 @@ export default class Users {
 
   update(attrs) {
     return transport
-      .send('PUT', ENDPOINT, {user: attrs})
+      .send('PUT', `${ENDPOINT}/${attrs.id}`, {user: attrs})
       .then(response => {
         storage.usersAdd(response.data);
         return response;

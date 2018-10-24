@@ -37,7 +37,7 @@ export default class RatePlans {
 
   update(attrs) {
     return transport
-      .send('PUT', ENDPOINT, {rate_plan: attrs})
+      .send('PUT', `${ENDPOINT}/${attrs.id}`, {rate_plan: attrs})
       .then(response => {
         storage.ratePlansAdd(response.data);
         return response;

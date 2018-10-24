@@ -37,7 +37,7 @@ export default class WhiteLabelDomains {
 
   update(attrs) {
     return transport
-      .send('PUT', ENDPOINT, {wl_domain: attrs})
+      .send('PUT', `${ENDPOINT}/${attrs.id}`, {wl_domain: attrs})
       .then(response => {
         storage.whiteLabelDomainsAdd(response.data);
         return response;

@@ -37,7 +37,7 @@ export default class EmailTemplates {
 
   update(attrs) {
     return transport
-      .send('PUT', ENDPOINT, {email_template: attrs})
+      .send('PUT', `${ENDPOINT}/${attrs.id}`, {email_template: attrs})
       .then(response => {
         storage.emailTemplatesAdd(response.data);
         return response;

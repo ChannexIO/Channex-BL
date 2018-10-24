@@ -37,7 +37,7 @@ export default class WhiteLabelPartners {
 
   update(attrs) {
     return transport
-      .send('PUT', ENDPOINT, {wl_partner: attrs})
+      .send('PUT', `${ENDPOINT}/${attrs.id}`, {wl_partner: attrs})
       .then(response => {
         storage.whiteLabelPartnersAdd(response.data);
         return response;

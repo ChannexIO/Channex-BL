@@ -37,7 +37,7 @@ export default class RoomTypes {
 
   update(attrs) {
     return transport
-      .send('PUT', ENDPOINT, {room_type: attrs})
+      .send('PUT', `${ENDPOINT}/${attrs.id}`, {room_type: attrs})
       .then(response => {
         storage.roomTypesAdd(response.data);
         return response;
