@@ -43,4 +43,13 @@ export default class RoomTypes {
         return response;
       });
   }
+
+  remove(attrs) {
+    return transport
+      .send('DELETE', `${ENDPOINT}/${attrs.id}`)
+      .then(response => {
+        storage.roomTypesDrop(attrs);
+        return response;
+      });
+  }
 }

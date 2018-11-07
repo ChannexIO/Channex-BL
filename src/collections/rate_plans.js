@@ -43,4 +43,13 @@ export default class RatePlans {
         return response;
       });
   }
+
+  remove(attrs) {
+    return transport
+      .send('DELETE', `${ENDPOINT}/${attrs.id}`)
+      .then(response => {
+        storage.ratePlansDrop(attrs);
+        return response;
+      });
+  }
 }

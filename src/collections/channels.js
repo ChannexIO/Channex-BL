@@ -43,4 +43,13 @@ export default class Channels {
         return response;
       });
   }
+
+  remove(attrs) {
+    return transport
+      .send('DELETE', `${ENDPOINT}/${attrs.id}`)
+      .then(response => {
+        storage.channelsDrop(attrs);
+        return response;
+      });
+  }
 }
