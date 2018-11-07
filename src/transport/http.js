@@ -40,6 +40,13 @@ export default class HTTPTransport {
     });
   }
 
+  _delete(endpoint, filters) {
+    return fetch(this._url(endpoint, filters), {
+      method: 'DELETE',
+      headers: this._headers()
+    });
+  }
+
   _headers() {
     let headers = {
       'Accept': 'application/json',
