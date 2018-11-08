@@ -13,6 +13,7 @@ import {
   whiteLabelEmailSettingsAdd,
   whiteLabelEmailSettingsDrop
 } from './white_label_email_settings_actions';
+import { tasksLoad } from './tasks_actions';
 
 export default {
   sessionAdd,
@@ -51,5 +52,7 @@ export default {
 
   whiteLabelEmailSettingsLoad,
   whiteLabelEmailSettingsAdd,
-  whiteLabelEmailSettingsDrop
+  whiteLabelEmailSettingsDrop,
+
+  tasksLoad
 };

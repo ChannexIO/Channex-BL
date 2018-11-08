@@ -11,6 +11,7 @@ import usersReducer from './users_reducer';
 import whiteLabelPartnersReducer from './white_label_partners_reducer';
 import whiteLabelDomainsReducer from './white_label_domains_reducer';
 import whiteLabelEmailSettingsReducer from './white_label_email_settings_reducer';
+import tasksReducer from './tasks_reducer';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -23,7 +24,8 @@ const rootReducer = combineReducers({
   users: usersReducer,
   whiteLabelPartners: whiteLabelPartnersReducer,
   whiteLabelDomains: whiteLabelDomainsReducer,
-  whiteLabelEmailSettings: whiteLabelEmailSettingsReducer
+  whiteLabelEmailSettings: whiteLabelEmailSettingsReducer,
+  tasks: tasksReducer
 });
 
 export default rootReducer;

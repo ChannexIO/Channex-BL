@@ -20,6 +20,7 @@ import Users from './users';
 import WhiteLabelPartners from './white_label_partners';
 import WhiteLabelDomains from './white_label_domains';
 import WhiteLabelEmailSettings from './white_label_email_settings';
+import Tasks from './tasks';
 
 export default {
   Auth,
@@ -43,5 +44,6 @@ export default {
   Users,
   WhiteLabelPartners,
   WhiteLabelDomains,
-  WhiteLabelEmailSettings
+  WhiteLabelEmailSettings,
+  Tasks
 };
