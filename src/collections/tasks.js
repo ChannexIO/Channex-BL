@@ -16,4 +16,12 @@ export default class Tasks {
         return response.data;
       });
   }
+
+  find(id) {
+    return transport
+      .send('GET', `${ENDPOINT}/${id}`)
+      .then(response => {
+        return response;
+      });
+  }
 }
