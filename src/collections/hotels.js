@@ -17,6 +17,15 @@ export default class Hotels {
       });
   }
 
+  stats() {
+    return transport
+      .send('GET', `${ENDPOINT}/stats`)
+      .then(response => {
+        storage.hotelsStatsLoad(response.data);
+        return response.data;
+      });
+  }
+
   find(id) {
     return transport
       .send('GET', `${ENDPOINT}/${id}`)

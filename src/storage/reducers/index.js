@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 
 import sessionReducer from './session_reducer';
 import hotelsReducer from './hotels_reducer';
+import hotelsStatsReducer from './hotels_stats_reducer';
 import roomTypesReducer from './room_types_reducer';
 import ratePlansReducer from './rate_plans_reducer';
 import channelsReducer from './channels_reducer';
@@ -14,6 +15,7 @@ import whiteLabelEmailSettingsReducer from './white_label_email_settings_reducer
 const rootReducer = combineReducers({
   session: sessionReducer,
   hotels: hotelsReducer,
+  hotelsStats: hotelsStatsReducer,
   roomTypes: roomTypesReducer,
   ratePlans: ratePlansReducer,
   channels: channelsReducer,
