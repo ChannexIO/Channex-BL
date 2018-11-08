@@ -13,6 +13,14 @@ const ACTION_HANDLERS = {
       action.payload
         .reduce((acc, el) => {
           acc[el.id] = el.attributes;
+          if (el.relationships) {
+            Object.keys(el.relationships)
+              .forEach(
+                key => {
+                  acc[el.id][`${key}_id`] = el.relationships[key].data.id;
+                }
+              );
+          }
           return acc;
         }, {})
     );
@@ -21,6 +29,14 @@ const ACTION_HANDLERS = {
     let item = {};
 
     item[action.payload.id] = action.payload.attributes;
+    if (action.payload.relationships) {
+      Object.keys(action.payload.relationships)
+        .forEach(
+          key => {
+            item[action.payload.id][`${key}_id`] = action.payload.relationships[key].data.id;
+          }
+        );
+    }
     return Object.assign(
       {},
       state || {},
