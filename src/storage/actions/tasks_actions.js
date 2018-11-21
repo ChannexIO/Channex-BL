@@ -3,8 +3,8 @@ import {
 } from '../constants';
 
 function tasksLoad(storage) {
-  return function (tasks) {
-    storage.dispatch({type: TASKS_LOAD, payload: tasks});
+  return function (tasks, meta) {
+    storage.dispatch({type: TASKS_LOAD, payload: {tasks, meta}});
   };
 }
 

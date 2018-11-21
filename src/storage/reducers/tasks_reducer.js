@@ -2,13 +2,16 @@ import {
   TASKS_LOAD
 } from '../constants';
 
-const initialState = null;
+const initialState = {
+  entities: null,
+  meta: null
+};
 const ACTION_HANDLERS = {
   [TASKS_LOAD]: (state, action) => {
-    return Object.assign(
+    const entities = Object.assign(
       {},
-      state || {},
-      action.payload
+      state.entities || {},
+      action.payload.tasks
         .reduce((acc, el) => {
           acc[el.id] = el.attributes;
           if (el.relationships) {
@@ -22,6 +25,11 @@ const ACTION_HANDLERS = {
           return acc;
         }, {})
     );
+
+    return {
+      entities,
+      meta: action.payload.meta
+    };
   }
 };
 

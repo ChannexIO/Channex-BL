@@ -8,11 +8,11 @@ export default class Tasks {
     storage = container.storage;
   }
 
-  list(filters = {}) {
+  list(filter = {}, pagination = {}, order = {}) {
     return transport
-      .send('GET', ENDPOINT, {filter: filters})
+      .send('GET', ENDPOINT, {filter, pagination, order})
       .then(response => {
-        storage.tasksLoad(response.data);
+        storage.tasksLoad(response.data, response.meta);
         return response.data;
       });
   }
