@@ -1,5 +1,6 @@
 import {
-  SESSION_ADD
+  SESSION_ADD,
+  CHOOSE_HOTEL
 } from '../constants';
 
 function sessionAdd(storage) {
@@ -8,4 +9,10 @@ function sessionAdd(storage) {
   };
 }
 
-export default {sessionAdd};
+function chooseHotel(storage) {
+  return function (hotel) {
+    storage.dispatch({type: CHOOSE_HOTEL, payload: hotel});
+  };
+}
+
+export default {sessionAdd, chooseHotel};

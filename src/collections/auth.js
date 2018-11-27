@@ -63,4 +63,8 @@ export default class Auth {
       .send('GET', `confirm_registration?token=${token}`)
       .then(response => response);
   }
+
+  chooseHotel(hotel) {
+    storage.chooseHotel(hotel);
+  }
 }

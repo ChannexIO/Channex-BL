@@ -1,4 +1,4 @@
-import {sessionAdd} from './session_actions';
+import {sessionAdd, chooseHotel} from './session_actions';
 import {hotelsLoad, hotelsAdd} from './hotel_actions';
 import {roomTypesLoad, roomTypesAdd, roomTypesDrop} from './room_type_actions';
 import {ratePlansLoad, ratePlansAdd, ratePlansDrop} from './rate_plan_actions';
@@ -15,6 +15,7 @@ import {
 
 export default {
   sessionAdd,
+  chooseHotel,
 
   hotelsLoad,
   hotelsAdd,
