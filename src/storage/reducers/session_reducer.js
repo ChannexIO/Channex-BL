@@ -14,7 +14,7 @@ const ACTION_HANDLERS = {
         break;
 
       default:
-        result = Object.assign(state, { activeHotel: action.payload });
+        result = Object.assign({}, state, { activeHotel: action.payload });
         break;
     }
 
