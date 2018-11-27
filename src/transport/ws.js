@@ -55,4 +55,8 @@ export default class WSTransport {
   registerAccessToken(token) {
     this.token = token;
   }
+
+  disconnect() {
+    this.socket.disconnect();
+  }
 }

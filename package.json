@@ -1,35 +1,36 @@
 {
   "name": "channex-bl",
-  "version": "1.0.0",
+  "version": "0.1.14",
   "description": "Channex.io business logic module",
   "main": "lib/channex-bl.js",
   "scripts": {
     "build": "webpack --env dev && webpack --env build && npm run test",
     "dev": "webpack --progress --colors --watch --env dev",
-    "test": "jest",
-    "test:watch": "mocha --require babel-register --colors -w ./test/*.spec.js",
+    "test": "jest --colors",
+    "test:watch": "jest --watch",
     "start": "webpack-dev-server --open"
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/buuqitcom/client_bl.git"
+    "url": "https://github.com/ChannexIO/Channex-BL.git"
   },
   "author": "Andrew Yudin",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/buuqitcom/client_bl",
+  "homepage": "https://github.com/ChannexIO/Channex-BL",
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.51",
-    "@babel/core": "^7.0.0-beta.51",
-    "@babel/preset-env": "^7.0.0-beta.51",
+    "babel-cli": "^6.0.0",
+    "babel-core": "^6.0.0",
     "babel-eslint": "^8.0.3",
     "babel-jest": "^23.6.0",
-    "babel-loader": "^8.0.0-beta.4",
+    "babel-loader": "^7.0.0",
     "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-preset-env": "^7.0.0-beta.3",
-    "babel-register": "^7.0.0-beta.3",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.0.0",
+    "codacy-coverage": "^3.1.0",
     "eslint": "^5.0.1",
     "eslint-loader": "^2.0.0",
     "jest": "^23.6.0",
+    "mock-socket": "^8.0.4",
     "redux-devtools": "^3.4.1",
     "redux-devtools-dock-monitor": "^1.1.3",
     "redux-devtools-extension": "^2.13.5",
@@ -43,5 +44,11 @@
   "dependencies": {
     "phoenix-channels": "^1.0.0",
     "redux": "^4.0.0"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ]
   }
 }

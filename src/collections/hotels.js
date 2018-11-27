@@ -17,6 +17,15 @@ export default class Hotels {
       });
   }
 
+  stats() {
+    return transport
+      .send('GET', `${ENDPOINT}/stats`)
+      .then(response => {
+        storage.hotelsStatsLoad(response.data);
+        return response.data;
+      });
+  }
+
   find(id) {
     return transport
       .send('GET', `${ENDPOINT}/${id}`)
@@ -28,7 +37,16 @@ export default class Hotels {
 
   create(attrs) {
     return transport
-      .send('POST', ENDPOINT)
+      .send('POST', ENDPOINT, {hotel: attrs})
+      .then(response => {
+        storage.hotelsAdd(response.data);
+        return response;
+      });
+  }
+
+  update(attrs) {
+    return transport
+      .send('PUT', `${ENDPOINT}/${attrs.id}`, {hotel: attrs})
       .then(response => {
         storage.hotelsAdd(response.data);
         return response;

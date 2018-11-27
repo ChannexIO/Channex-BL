@@ -28,7 +28,7 @@ export default class RatePlans {
 
   create(attrs) {
     return transport
-      .send('POST', ENDPOINT, {room_type: attrs})
+      .send('POST', ENDPOINT, {rate_plan: attrs})
       .then(response => {
         storage.ratePlansAdd(response.data);
         return response;
@@ -37,9 +37,18 @@ export default class RatePlans {
 
   update(attrs) {
     return transport
-      .send('PUT', ENDPOINT, {room_type: attrs})
+      .send('PUT', `${ENDPOINT}/${attrs.id}`, {rate_plan: attrs})
       .then(response => {
         storage.ratePlansAdd(response.data);
+        return response;
+      });
+  }
+
+  remove(attrs) {
+    return transport
+      .send('DELETE', `${ENDPOINT}/${attrs.id}`)
+      .then(response => {
+        storage.ratePlansDrop(attrs);
         return response;
       });
   }

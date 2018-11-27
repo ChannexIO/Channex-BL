@@ -46,6 +46,7 @@ class ChannexBL {
       this.WhiteLabelPartners = new Collections.WhiteLabelPartners(this);
       this.WhiteLabelDomains = new Collections.WhiteLabelDomains(this);
       this.WhiteLabelEmailSettings = new Collections.WhiteLabelEmailSettings(this);
+      this.Tasks = new Collections.Tasks(this);
       instance = this;
     } else {
       return instance;

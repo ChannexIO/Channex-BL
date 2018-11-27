@@ -1,5 +1,9 @@
 /* global test */
-import ChannexBL from '../lib/channex-bl.js';
+import { WebSocket } from 'mock-socket';
+
+window.WebSocket = WebSocket;
+
+import ChannexBL from '../src/index.js';
 
 test('Should be defined and have all required components', () => {
   expect(ChannexBL).not.toBe(null);
@@ -31,4 +35,6 @@ test('Should be defined and have all required components', () => {
   expect(ChannexBL.WhiteLabelPartners).toBeDefined();
   expect(ChannexBL.WhiteLabelDomains).toBeDefined();
   expect(ChannexBL.WhiteLabelEmailSettings).toBeDefined();
+
+  ChannexBL.ws.disconnect();
 });
