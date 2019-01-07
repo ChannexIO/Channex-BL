@@ -1,6 +1,6 @@
 {
   "name": "channex-bl",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "description": "Channex.io business logic module",
   "main": "lib/channex-bl.js",
   "scripts": {
