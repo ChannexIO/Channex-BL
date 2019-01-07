@@ -3,6 +3,7 @@ import {hotelsLoad, hotelsAdd} from './hotel_actions';
 import {hotelsStatsLoad} from './hotel_stats_actions';
 import {roomTypesLoad, roomTypesAdd, roomTypesDrop} from './room_type_actions';
 import {ratePlansLoad, ratePlansAdd, ratePlansDrop} from './rate_plan_actions';
+import {rateCategoriesLoad, rateCategoriesAdd, rateCategoriesDrop} from './rate_category_actions';
 import {channelsLoad, channelsAdd, channelsDrop} from './channel_actions';
 import {emailTemplatesLoad, emailTemplatesAdd, emailTemplatesDrop} from './email_template_actions';
 import {usersLoad, usersAdd, usersDrop} from './user_actions';
@@ -30,6 +31,10 @@ export default {
   ratePlansLoad,
   ratePlansAdd,
   ratePlansDrop,
+
+  rateCategoriesLoad,
+  rateCategoriesAdd,
+  rateCategoriesDrop,
 
   channelsLoad,
   channelsAdd,

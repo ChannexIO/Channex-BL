@@ -28,6 +28,7 @@ class ChannexBL {
       this.Hotels = new Collections.Hotels(this);
       this.RoomTypes = new Collections.RoomTypes(this);
       this.RatePlans = new Collections.RatePlans(this);
+      this.RateCategories = new Collections.RateCategories(this);
       this.Channels = new Collections.Channels(this);
       this.ARI = new Collections.ARI(this);
       this.CustomRates = new Collections.CustomRates(this);

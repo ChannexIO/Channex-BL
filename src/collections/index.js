@@ -2,6 +2,7 @@ import Auth from './auth';
 import Hotels from './hotels';
 import RoomTypes from './room_types';
 import RatePlans from './rate_plans';
+import RateCategories from './rate_categories';
 import Channels from './channels';
 import ARI from './ari';
 import CustomRates from './custom_rates';
@@ -27,6 +28,7 @@ export default {
   Hotels,
   RoomTypes,
   RatePlans,
+  RateCategories,
   Channels,
   ARI,
   CustomRates,
