@@ -28,7 +28,7 @@ export default class RateCategories {
 
   create(attrs) {
     return transport
-      .send('POST', ENDPOINT, {rate_plan: attrs})
+      .send('POST', ENDPOINT, {rate_category: attrs})
       .then(response => {
         storage.rateCategoriesAdd(response.data);
         return response;
@@ -37,7 +37,7 @@ export default class RateCategories {
 
   update(attrs) {
     return transport
-      .send('PUT', `${ENDPOINT}/${attrs.id}`, {rate_plan: attrs})
+      .send('PUT', `${ENDPOINT}/${attrs.id}`, {rate_category: attrs})
       .then(response => {
         storage.rateCategoriesAdd(response.data);
         return response;
