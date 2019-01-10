@@ -5,7 +5,7 @@ import hotelsReducer from './hotels_reducer';
 import hotelsStatsReducer from './hotels_stats_reducer';
 import roomTypesReducer from './room_types_reducer';
 import ratePlansReducer from './rate_plans_reducer';
-import rateCategoriesReducer from './rate_plans_reducer';
+import rateCategoriesReducer from './rate_categories_reducer';
 import channelsReducer from './channels_reducer';
 import emailTemplatesReducer from './email_templates_reducer';
 import usersReducer from './users_reducer';
