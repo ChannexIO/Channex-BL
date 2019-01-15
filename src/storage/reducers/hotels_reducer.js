@@ -7,15 +7,15 @@ import {
 const initialState = null;
 const ACTION_HANDLERS = {
   [HOTELS_LOAD]: (state, action) => {
-    return Object.assign(
-      {},
-      state || {},
-      action.payload
-        .reduce((acc, el) => {
-          acc[el.id] = el.attributes;
-          return acc;
-        }, {})
-    );
+    return action.payload.reduce((acc, el) => {
+      acc[el.id] = el.attributes;
+      if (el.relationships) {
+        Object.keys(el.relationships).forEach(key => {
+          acc[el.id][`${key}_id`] = el.relationships[key].data.id;
+        });
+      }
+      return acc;
+    }, {});
   },
   [HOTELS_ADD]: (state, action) => {
     let item = {};

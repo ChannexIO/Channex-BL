@@ -3,19 +3,15 @@ import { RATE_CATEGORIES_LOAD, RATE_CATEGORIES_ADD, RATE_CATEGORIES_DROP } from 
 const initialState = null;
 const ACTION_HANDLERS = {
   [RATE_CATEGORIES_LOAD]: (state, action) => {
-    return Object.assign(
-      {},
-      state || {},
-      action.payload.reduce((acc, el) => {
-        acc[el.id] = el.attributes;
-        if (el.relationships) {
-          Object.keys(el.relationships).forEach(key => {
-            acc[el.id][`${key}_id`] = el.relationships[key].data.id;
-          });
-        }
-        return acc;
-      }, {})
-    );
+    return action.payload.reduce((acc, el) => {
+      acc[el.id] = el.attributes;
+      if (el.relationships) {
+        Object.keys(el.relationships).forEach(key => {
+          acc[el.id][`${key}_id`] = el.relationships[key].data.id;
+        });
+      }
+      return acc;
+    }, {});
   },
   [RATE_CATEGORIES_ADD]: (state, action) => {
     let item = {};
@@ -34,7 +30,7 @@ const ACTION_HANDLERS = {
       .filter(key => {
         return (
           key !== action.payload.id &&
-          state[key].parent_rate_plan_id !== action.payload.id
+          state[key].parent_rate_category_id !== action.payload.id
         );
       })
       .reduce((acc, key) => {
