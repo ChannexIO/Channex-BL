@@ -11,6 +11,12 @@ export default class ARI {
       .then(response => response);
   }
 
+  availability(filters) {
+    return transport
+      .send('GET', 'availability', {filter: filters})
+      .then(response => response);
+  }
+
   update(attrs) {
     return transport
       .send('POST', 'restrictions', {values: attrs})
