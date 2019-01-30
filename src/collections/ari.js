@@ -24,4 +24,12 @@ export default class ARI {
         return response;
       });
   }
+
+  updateAvailability(attrs) {
+    return transport
+      .send('POST', 'availability', {values: attrs})
+      .then(response => {
+        return response;
+      });
+  }
 }
