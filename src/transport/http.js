@@ -61,7 +61,7 @@ export default class HTTPTransport {
   }
 
   _url(endpoint, params = null) {
-    return `${this.settings.protocol}://${this.settings.server}/api/${endpoint}${stringifyArguments(params)}`;
+    return `${this.settings.protocol}://${this.settings.server}/api/v1/${endpoint}${stringifyArguments(params)}`;
   }
 
   _prepareAnswer(response) {
