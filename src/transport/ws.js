@@ -7,6 +7,8 @@ const JWT_FIELD = '__jwt';
 const JOIN_SUCCESS_MSG = 'Joined successfully';
 const JOIN_ERROR_MSG = 'Unable to join';
 const TIMEOUT_ERROR_MSG = 'Timeout Error';
+const EVENTS = ['hotel:state_changed'];
+const subscriptions = {};
 
 function createSocket(context) {
   const socket = new Socket(`ws://${context.settings.server}/socket`);
@@ -29,6 +31,28 @@ function connectAPIChannel(context) {
   context.apiChannel = apiChannel;
 }
 
+function publishEvent(event, payload) {
+  if (!subscriptions[event]) {
+    return;
+  }
+
+  subscriptions[event].forEach(item => {
+    item(payload !== undefined ? payload : {});
+  });
+}
+
+function receiveEvent(event) {
+  return payload => {
+    publishEvent(event, payload);
+  };
+}
+
+function subscribeToEvents(context) {
+  EVENTS.forEach(event => {
+    context.apiChannel.on(event, receiveEvent(event));
+  });
+}
+
 export default class WSTransport {
   constructor(settings, token = null) {
     this.settings = settings;
@@ -36,6 +60,7 @@ export default class WSTransport {
 
     createSocket(this);
     connectAPIChannel(this);
+    subscribeToEvents(this);
   }
 
   send(method, endpoint, payload) {
@@ -58,5 +83,22 @@ export default class WSTransport {
 
   disconnect() {
     this.socket.disconnect();
+  }
+
+  subscribe(event, callback) {
+    if (!subscriptions[event]) {
+      subscriptions[event] = [];
+    }
+    let index = subscriptions[event].push(callback) - 1;
+
+    return {
+      remove: () => {
+        delete subscriptions[event][index];
+      }
+    };
+  }
+
+  publish(event, payload) {
+    return publishEvent(event, payload);
   }
 }
