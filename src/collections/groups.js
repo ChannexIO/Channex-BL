@@ -28,7 +28,7 @@ export default class Groups {
 
   create(attrs) {
     return transport
-      .send('POST', ENDPOINT, {hotel: attrs})
+      .send('POST', ENDPOINT, {group: attrs})
       .then(response => {
         storage.groupsAdd(response.data);
         return response;
@@ -37,7 +37,7 @@ export default class Groups {
 
   update(attrs) {
     return transport
-      .send('PUT', `${ENDPOINT}/${attrs.id}`, {hotel: attrs})
+      .send('PUT', `${ENDPOINT}/${attrs.id}`, {group: attrs})
       .then(response => {
         storage.groupsAdd(response.data);
         return response;
