@@ -45,3 +45,7 @@ export const EMAIL_TEMPLATES_ADD = 'EMAIL_TEMPLATES_ADD';
 export const EMAIL_TEMPLATES_DROP = 'EMAIL_TEMPLATES_DROP';
 
 export const TASKS_LOAD = 'TASKS_LOAD';
+
+export const GROUPS_LOAD = 'GROUPS_LOAD';
+export const GROUPS_ADD = 'GROUPS_ADD';
+export const GROUPS_DROP = 'GROUPS_DROP';

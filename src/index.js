@@ -4,7 +4,7 @@ import Storage from './storage';
 
 const defaultOptions = {
   protocol: 'http',
-  server: 'staging.channex.io'
+  server: 'localhost:4000'
 };
 
 let instance = null;
@@ -26,6 +26,7 @@ class ChannexBL {
 
       this.Auth = new Collections.Auth(this);
       this.Hotels = new Collections.Hotels(this);
+      this.Groups = new Collections.Groups(this);
       this.RoomTypes = new Collections.RoomTypes(this);
       this.RatePlans = new Collections.RatePlans(this);
       this.RateCategories = new Collections.RateCategories(this);

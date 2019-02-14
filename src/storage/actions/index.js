@@ -15,6 +15,7 @@ import {
   whiteLabelEmailSettingsDrop
 } from './white_label_email_settings_actions';
 import { tasksLoad } from './tasks_actions';
+import {groupsLoad, groupsAdd, groupsDrop} from './group_actions';
 
 export default {
   sessionAdd,
@@ -60,5 +61,9 @@ export default {
   whiteLabelEmailSettingsAdd,
   whiteLabelEmailSettingsDrop,
 
-  tasksLoad
+  tasksLoad,
+
+  groupsLoad,
+  groupsAdd,
+  groupsDrop
 };
