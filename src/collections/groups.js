@@ -57,7 +57,8 @@ export default class Groups {
     return transport
       .send('POST', `${ENDPOINT}/${group.id}/add_hotel/${hotel_id}`, {})
       .then(response => {
-        storage.groupsAdd(response.data);
+        storage.groupsAdd(response.data.group);
+        storage.hotelsAdd(response.data.hotel);
         return response;
       });
   }
@@ -66,7 +67,8 @@ export default class Groups {
     return transport
       .send('DELETE', `${ENDPOINT}/${group.id}/add_hotel/${hotel_id}`)
       .then(response => {
-        storage.groupsAdd(response.data);
+        storage.groupsAdd(response.data.group);
+        storage.hotelsAdd(response.data.hotel);
         return response;
       });
   }
