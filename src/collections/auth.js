@@ -67,4 +67,8 @@ export default class Auth {
   chooseHotel(hotel) {
     storage.chooseHotel(hotel);
   }
+
+  chooseGroup(group) {
+    storage.chooseGroup(group);
+  }
 }

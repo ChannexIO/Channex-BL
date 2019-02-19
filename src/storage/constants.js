@@ -1,6 +1,7 @@
 export const STORAGE_CACHE_KEY = 'CHANNEX_BL_CACHE';
 export const SESSION_ADD = 'SESSION_ADD';
 export const CHOOSE_HOTEL = 'CHOOSE_HOTEL';
+export const CHOOSE_GROUP = 'CHOOSE_GROUP';
 
 export const HOTELS_LOAD = 'HOTELS_LOAD';
 export const HOTELS_ADD = 'HOTELS_ADD';
