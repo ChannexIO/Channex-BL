@@ -7,7 +7,16 @@ const ACTION_HANDLERS = {
       acc[el.id] = el.attributes;
       if (el.relationships) {
         Object.keys(el.relationships).forEach(key => {
-          acc[el.id][`${key}_id`] = el.relationships[key].data.id;
+          if (Array.isArray(el.relationships[key].data)) {
+            acc[el.id][key] = el.relationships[key].data
+              .map(el => el.attributes)
+              .reduce((acc, el) => {
+                acc[el.id] = el;
+                return acc;
+              }, {});
+          } else {
+            acc[el.id][`${key}_id`] = el.relationships[key].data.id;
+          }
         });
       }
       return acc;
@@ -19,8 +28,17 @@ const ACTION_HANDLERS = {
     item[action.payload.id] = action.payload.attributes;
     if (action.payload.relationships) {
       Object.keys(action.payload.relationships).forEach(key => {
-        item[action.payload.id][`${key}_id`] =
-          action.payload.relationships[key].data.id;
+        if (Array.isArray(action.payload.relationships[key].data)) {
+          item[action.payload.id][key] = action.payload.relationships[key].data
+            .map(el => el.attributes)
+            .reduce((acc, el) => {
+              acc[el.id] = el;
+              return acc;
+            }, {});
+        } else {
+          item[action.payload.id][`${key}_id`] =
+            action.payload.relationships[key].data.id;
+        }
       });
     }
     return Object.assign({}, state || {}, item);

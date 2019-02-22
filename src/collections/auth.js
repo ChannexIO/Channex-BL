@@ -1,3 +1,5 @@
+import Groups from './groups';
+import Properties from './properties';
 let transport;
 let storage;
 
@@ -14,6 +16,13 @@ export default class Auth {
         if (response.data.attributes.token) {
           transport.registerAccessToken(response.data.attributes.token);
           storage.sessionAdd(response.data.attributes);
+          storage.userAdd(response.data.relationships.user.data.attributes);
+          Promise.all([
+            (new Groups({transport, storage})).list(),
+            (new Properties({transport, storage})).list()
+          ]).then(_ => {
+            return response;
+          });
         }
 
         return response;
@@ -27,6 +36,7 @@ export default class Auth {
         if (response.data.attributes.token) {
           transport.registerAccessToken(response.data.attributes.token);
           storage.sessionAdd(response.data.attributes);
+          storage.userAdd(response.data.relationships.user.data.attributes);
         }
 
         return response;
@@ -64,8 +74,8 @@ export default class Auth {
       .then(response => response);
   }
 
-  chooseHotel(hotel) {
-    storage.chooseHotel(hotel);
+  chooseProperty(property) {
+    storage.chooseProperty(property);
   }
 
   chooseGroup(group) {

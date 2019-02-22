@@ -1,8 +1,8 @@
 let transport;
 let storage;
-const ENDPOINT = 'hotels';
+const ENDPOINT = 'properties';
 
-export default class Hotels {
+export default class Properties {
   constructor(container) {
     transport = container.transport;
     storage = container.storage;
@@ -12,16 +12,16 @@ export default class Hotels {
     return transport
       .send('GET', ENDPOINT, {filter: filters})
       .then(response => {
-        storage.hotelsLoad(response.data);
+        storage.propertiesLoad(response.data);
         return response.data;
       });
   }
 
   stats() {
     return transport
-      .send('GET', `${ENDPOINT}/stats`)
+      .send('GET', `${ENDPOINT}/health`)
       .then(response => {
-        storage.hotelsStatsLoad(response.data);
+        storage.propertiesStatsLoad(response.data);
         return response.data;
       });
   }
@@ -30,25 +30,25 @@ export default class Hotels {
     return transport
       .send('GET', `${ENDPOINT}/${id}`)
       .then(response => {
-        storage.hotelsAdd(response.data);
+        storage.propertiesAdd(response.data);
         return response;
       });
   }
 
   create(attrs) {
     return transport
-      .send('POST', ENDPOINT, {hotel: attrs})
+      .send('POST', ENDPOINT, {property: attrs})
       .then(response => {
-        storage.hotelsAdd(response.data);
+        storage.properiesAdd(response.data);
         return response;
       });
   }
 
   update(attrs) {
     return transport
-      .send('PUT', `${ENDPOINT}/${attrs.id}`, {hotel: attrs})
+      .send('PUT', `${ENDPOINT}/${attrs.id}`, {property: attrs})
       .then(response => {
-        storage.hotelsAdd(response.data);
+        storage.properiesAdd(response.data);
         return response;
       });
   }

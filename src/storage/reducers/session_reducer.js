@@ -1,11 +1,11 @@
-import { SESSION_ADD, CHOOSE_HOTEL, CHOOSE_GROUP } from '../constants';
+import { SESSION_ADD, CHOOSE_PROPERTY, CHOOSE_GROUP } from '../constants';
 
 const initialState = null;
 const ACTION_HANDLERS = {
   [SESSION_ADD]: (state, action) => {
     return action.payload;
   },
-  [CHOOSE_HOTEL]: (state, action) => {
+  [CHOOSE_PROPERTY]: (state, action) => {
     let result = null;
 
     switch (state) {
@@ -14,7 +14,7 @@ const ACTION_HANDLERS = {
         break;
 
       default:
-        result = Object.assign({}, state, { activeHotel: action.payload });
+        result = Object.assign({}, state, { activeProperty: action.payload });
         break;
     }
 

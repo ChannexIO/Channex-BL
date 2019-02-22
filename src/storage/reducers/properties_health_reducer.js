@@ -1,10 +1,10 @@
 import {
-  HOTELS_STATS_LOAD
+  PROPERTIES_HEALTH_LOAD
 } from '../constants';
 
 const initialState = null;
 const ACTION_HANDLERS = {
-  [HOTELS_STATS_LOAD]: (state, action) => {
+  [PROPERTIES_HEALTH_LOAD]: (state, action) => {
     return Object.assign(
       {},
       state || {},
@@ -17,7 +17,7 @@ const ACTION_HANDLERS = {
   }
 };
 
-export default function hotelsStatsReducer(state = initialState, action) {
+export default function propertiesHealthReducer(state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type];
 
   return handler ? handler(state, action) : state;

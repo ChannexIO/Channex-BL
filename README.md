@@ -50,11 +50,11 @@ ChannexBL provide for you next components:
 Methods:
 
 - `ChannexBL.Auth` Authentication methods
-- `ChannexBL.Hotels` Hotels CRUD methods
+- `ChannexBL.Properties` Properties CRUD methods
 - `ChannexBL.RoomTypes` RoomTypes CRUD methods
 - `ChannexBL.RatePlans` RatePlans CRUD methods
 - `ChannexBL.Channels` Channels CRUD methods
-- `ChannexBL.ARI` Hotel restrictions Query method
+- `ChannexBL.ARI` Property restrictions Query method
 - `ChannexBL.CustomRates` CustomRates CRUD methods
 - `ChannexBL.CustomMinStayArrivals` CustomMinStayArrivals CRUD methods
 - `ChannexBL.CustomMinStayThroughs` CustomMinStayThroughs CRUD methods

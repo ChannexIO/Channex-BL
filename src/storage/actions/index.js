@@ -1,11 +1,12 @@
-import {sessionAdd, chooseHotel, chooseGroup} from './session_actions';
-import {hotelsLoad, hotelsAdd} from './hotel_actions';
-import {hotelsStatsLoad} from './hotel_stats_actions';
+import {sessionAdd, chooseProperty, chooseGroup} from './session_actions';
+import {propertiesLoad, propertiesAdd} from './property_actions';
+import {propertiesHealthLoad} from './property_health_actions';
 import {roomTypesLoad, roomTypesAdd, roomTypesDrop} from './room_type_actions';
 import {ratePlansLoad, ratePlansAdd, ratePlansDrop} from './rate_plan_actions';
 import {rateCategoriesLoad, rateCategoriesAdd, rateCategoriesDrop} from './rate_category_actions';
 import {channelsLoad, channelsAdd, channelsDrop} from './channel_actions';
 import {emailTemplatesLoad, emailTemplatesAdd, emailTemplatesDrop} from './email_template_actions';
+import {userAdd} from './current_user_actions';
 import {usersLoad, usersAdd, usersDrop} from './user_actions';
 import {whiteLabelPartnersLoad, whiteLabelPartnersAdd, whiteLabelPartnersDrop} from './white_label_partner_actions';
 import {whiteLabelDomainsLoad, whiteLabelDomainsAdd, whiteLabelDomainsDrop} from './white_label_domain_actions';
@@ -19,12 +20,12 @@ import {groupsLoad, groupsAdd, groupsDrop} from './group_actions';
 
 export default {
   sessionAdd,
-  chooseHotel,
+  chooseProperty,
   chooseGroup,
 
-  hotelsLoad,
-  hotelsStatsLoad,
-  hotelsAdd,
+  propertiesLoad,
+  propertiesHealthLoad,
+  propertiesAdd,
 
   roomTypesLoad,
   roomTypesAdd,
@@ -46,6 +47,7 @@ export default {
   emailTemplatesAdd,
   emailTemplatesDrop,
 
+  userAdd,
   usersLoad,
   usersAdd,
   usersDrop,

@@ -1,3 +1,4 @@
+import Properties from './properties';
 let transport;
 let storage;
 const ENDPOINT = 'groups';
@@ -53,23 +54,29 @@ export default class Groups {
       });
   }
 
-  addHotel(group, hotel_id) {
+  addProperty(group, property_id) {
     return transport
-      .send('POST', `${ENDPOINT}/${group.id}/add_hotel/${hotel_id}`, {})
+      .send('POST', `${ENDPOINT}/${group.id}/properties/${property_id}`, {})
       .then(response => {
-        storage.groupsAdd(response.data.group);
-        storage.hotelsAdd(response.data.hotel);
-        return response;
+        Promise.all([
+          this.find(group.id),
+          (new Properties({transport, storage})).find(property_id)
+        ]).then(_ => {
+          return response;
+        });
       });
   }
 
-  removeHotel(group, hotel_id) {
+  removeProperty(group, property_id) {
     return transport
-      .send('DELETE', `${ENDPOINT}/${group.id}/add_hotel/${hotel_id}`)
+      .send('DELETE', `${ENDPOINT}/${group.id}/properties/${property_id}`)
       .then(response => {
-        storage.groupsAdd(response.data.group);
-        storage.hotelsAdd(response.data.hotel);
-        return response;
+        Promise.all([
+          this.find(group.id),
+          (new Properties({transport, storage})).find(property_id)
+        ]).then(_ => {
+          return response;
+        });
       });
   }
 }

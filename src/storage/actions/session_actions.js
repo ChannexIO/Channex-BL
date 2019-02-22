@@ -1,6 +1,6 @@
 import {
   SESSION_ADD,
-  CHOOSE_HOTEL,
+  CHOOSE_PROPERTY,
   CHOOSE_GROUP
 } from '../constants';
 
@@ -10,9 +10,9 @@ function sessionAdd(storage) {
   };
 }
 
-function chooseHotel(storage) {
-  return function (hotel) {
-    storage.dispatch({type: CHOOSE_HOTEL, payload: hotel});
+function chooseProperty(storage) {
+  return function (property) {
+    storage.dispatch({type: CHOOSE_PROPERTY, payload: property});
   };
 }
 
@@ -22,4 +22,4 @@ function chooseGroup(storage) {
   };
 }
 
-export default {sessionAdd, chooseHotel, chooseGroup};
+export default {sessionAdd, chooseProperty, chooseGroup};

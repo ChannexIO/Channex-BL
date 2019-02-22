@@ -1,5 +1,5 @@
 import Auth from './auth';
-import Hotels from './hotels';
+import Properties from './properties';
 import RoomTypes from './room_types';
 import RatePlans from './rate_plans';
 import RateCategories from './rate_categories';
@@ -26,7 +26,7 @@ import Groups from './groups';
 
 export default {
   Auth,
-  Hotels,
+  Properties,
   RoomTypes,
   RatePlans,
   RateCategories,

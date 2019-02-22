@@ -14,7 +14,7 @@ test('Should be defined and have all required components', () => {
   expect(ChannexBL.ws).toBeDefined();
   expect(ChannexBL.transport).toBeDefined();
   expect(ChannexBL.Auth).toBeDefined();
-  expect(ChannexBL.Hotels).toBeDefined();
+  expect(ChannexBL.Properties).toBeDefined();
   expect(ChannexBL.RoomTypes).toBeDefined();
   expect(ChannexBL.RatePlans).toBeDefined();
   expect(ChannexBL.Channels).toBeDefined();
