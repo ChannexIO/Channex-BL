@@ -17,11 +17,11 @@ export default class Properties {
       });
   }
 
-  stats() {
+  health() {
     return transport
       .send('GET', `${ENDPOINT}/health`)
       .then(response => {
-        storage.propertiesStatsLoad(response.data);
+        storage.propertiesHealthLoad(response.data);
         return response.data;
       });
   }
