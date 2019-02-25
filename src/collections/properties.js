@@ -39,7 +39,7 @@ export default class Properties {
     return transport
       .send('POST', ENDPOINT, {property: attrs})
       .then(response => {
-        storage.properiesAdd(response.data);
+        storage.propertiesAdd(response.data);
         return response;
       });
   }
@@ -48,7 +48,7 @@ export default class Properties {
     return transport
       .send('PUT', `${ENDPOINT}/${attrs.id}`, {property: attrs})
       .then(response => {
-        storage.properiesAdd(response.data);
+        storage.propertiesAdd(response.data);
         return response;
       });
   }
