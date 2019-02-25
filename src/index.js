@@ -2,16 +2,9 @@ import Collections from './collections';
 import {HTTPTransport, WSTransport} from './transport';
 import Storage from './storage';
 
-const env = process && process.env && process.env.NODE_ENV ? process.env.NODE_ENV : 'production';
 const defaultOptions = {
-  production: {
-    protocol: 'http',
-    server: 'staging.channex.io'
-  },
-  development: {
-    protocol: 'http',
-    server: 'localhost:4000'
-  }
+  protocol: 'http',
+  server: 'staging.channex.io'
 };
 
 let instance = null;
@@ -24,7 +17,7 @@ class ChannexBL {
   constructor(opts = {}) {
     if (!instance) {
       this.storage = Storage({});
-      this.settings = Object.assign(defaultOptions[env] || defaultOptions['production'], opts);
+      this.settings = Object.assign(defaultOptions, opts);
 
       // Register transport methods
       this.http = new HTTPTransport(this.settings, getToken(this.storage.getState()));
