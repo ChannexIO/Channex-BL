@@ -26,6 +26,21 @@ const ACTION_HANDLERS = {
     let item = {};
 
     item[action.payload.id] = action.payload.attributes;
+    if (action.payload.relationships) {
+      Object.keys(action.payload.relationships).forEach(key => {
+        if (Array.isArray(action.payload.relationships[key].data)) {
+          item[action.payload.id][key] = action.payload.relationships[key].data
+            .map(el => el.attributes)
+            .reduce((acc, el) => {
+              acc[el.id] = el;
+              return acc;
+            }, {});
+        } else {
+          item[action.payload.id][`${key}_id`] =
+            action.payload.relationships[key].data.id;
+        }
+      });
+    }
     return Object.assign({}, state || {}, item);
   },
   [PROPERTIES_DROP]: (state, action) => {
