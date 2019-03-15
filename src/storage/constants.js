@@ -51,3 +51,5 @@ export const TASKS_LOAD = 'TASKS_LOAD';
 export const GROUPS_LOAD = 'GROUPS_LOAD';
 export const GROUPS_ADD = 'GROUPS_ADD';
 export const GROUPS_DROP = 'GROUPS_DROP';
+
+export const CHANNEL_ACTIONS_LOAD = 'CHANNEL_ACTIONS_LOAD';

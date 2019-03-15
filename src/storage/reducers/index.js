@@ -7,6 +7,7 @@ import roomTypesReducer from './room_types_reducer';
 import ratePlansReducer from './rate_plans_reducer';
 import rateCategoriesReducer from './rate_categories_reducer';
 import channelsReducer from './channels_reducer';
+import channelActionsReducer from './channel_actions_reducer';
 import emailTemplatesReducer from './email_templates_reducer';
 import userReducer from './user_reducer';
 import usersReducer from './users_reducer';
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   ratePlans: ratePlansReducer,
   rateCategories: rateCategoriesReducer,
   channels: channelsReducer,
+  channelActions: channelActionsReducer,
   emailTemplates: emailTemplatesReducer,
   user: userReducer,
   users: usersReducer,

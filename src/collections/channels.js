@@ -17,6 +17,15 @@ export default class Channels {
       });
   }
 
+  actions(filter = {}, pagination = {}, order = {}) {
+    return transport
+      .send('GET', `${ENDPOINT}/actions`, {filter, pagination, order})
+      .then(response => {
+        storage.channelActionsLoad(response.data, response.meta);
+        return response.data;
+      });
+  }
+
   find(id) {
     return transport
       .send('GET', `${ENDPOINT}/${id}`)

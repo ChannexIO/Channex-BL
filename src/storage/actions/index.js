@@ -5,6 +5,7 @@ import {roomTypesLoad, roomTypesAdd, roomTypesDrop} from './room_type_actions';
 import {ratePlansLoad, ratePlansAdd, ratePlansDrop} from './rate_plan_actions';
 import {rateCategoriesLoad, rateCategoriesAdd, rateCategoriesDrop} from './rate_category_actions';
 import {channelsLoad, channelsAdd, channelsDrop} from './channel_actions';
+import {channelActionsLoad} from './channel_action_actions';
 import {emailTemplatesLoad, emailTemplatesAdd, emailTemplatesDrop} from './email_template_actions';
 import {userAdd} from './current_user_actions';
 import {usersLoad, usersAdd, usersDrop} from './user_actions';
@@ -42,6 +43,7 @@ export default {
   channelsLoad,
   channelsAdd,
   channelsDrop,
+  channelActionsLoad,
 
   emailTemplatesLoad,
   emailTemplatesAdd,
