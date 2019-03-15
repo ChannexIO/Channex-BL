@@ -24,6 +24,7 @@ export const RATE_PLANS_DROP = 'RATE_PLANS_DROP';
 export const CHANNELS_LOAD = 'CHANNELS_LOAD';
 export const CHANNELS_ADD = 'CHANNELS_ADD';
 export const CHANNELS_DROP = 'CHANNELS_DROP';
+export const CHANNELS_HEALTH_LOAD = 'CHANNELS_HEALTH_LOAD';
 
 export const USER_ADD = 'USER_ADD';
 export const USERS_LOAD = 'USERS_LOAD';

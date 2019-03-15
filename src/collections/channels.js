@@ -17,6 +17,15 @@ export default class Channels {
       });
   }
 
+  health() {
+    return transport
+      .send('GET', `${ENDPOINT}/health`)
+      .then(response => {
+        storage.channelsHealthLoad(response.data);
+        return response.data;
+      });
+  }
+
   actions(filter = {}, pagination = {}, order = {}) {
     return transport
       .send('GET', `${ENDPOINT}/actions`, {filter, pagination, order})
