@@ -7,7 +7,7 @@ const JWT_FIELD = '__jwt';
 const JOIN_SUCCESS_MSG = 'Joined successfully';
 const JOIN_ERROR_MSG = 'Unable to join';
 const TIMEOUT_ERROR_MSG = 'Timeout Error';
-const EVENTS = ['property:state_changed'];
+const EVENTS = ['property:state_changed', 'channel:health_changed'];
 const subscriptions = {};
 
 function createSocket(context) {
