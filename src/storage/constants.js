@@ -54,3 +54,4 @@ export const GROUPS_ADD = 'GROUPS_ADD';
 export const GROUPS_DROP = 'GROUPS_DROP';
 
 export const CHANNEL_ACTIONS_LOAD = 'CHANNEL_ACTIONS_LOAD';
+export const BOOKINGS_LOAD = 'BOOKINGS_LOAD';

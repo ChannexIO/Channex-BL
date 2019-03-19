@@ -19,6 +19,7 @@ import {
 } from './white_label_email_settings_actions';
 import { tasksLoad } from './tasks_actions';
 import {groupsLoad, groupsAdd, groupsDrop} from './group_actions';
+import {bookingsLoad} from './booking_actions';
 
 export default {
   sessionAdd,
@@ -72,5 +73,7 @@ export default {
 
   groupsLoad,
   groupsAdd,
-  groupsDrop
+  groupsDrop,
+
+  bookingsLoad
 };
