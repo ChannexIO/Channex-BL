@@ -70,4 +70,12 @@ export default class Channels {
         return response;
       });
   }
+
+  available_to_connect() {
+    return transport
+      .send('GET', `${ENDPOINT}/list`)
+      .then(response => {
+        return response;
+      });
+  }
 }
