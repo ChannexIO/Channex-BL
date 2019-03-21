@@ -23,6 +23,7 @@ class ChannexBL {
       this.http = new HTTPTransport(this.settings, getToken(this.storage.getState()));
       this.ws = new WSTransport(this.settings, getToken(this.storage.getState()));
       this.transport = this.settings.protocol === 'ws' ? this.ws : this.http;
+      const Raw = new Collections.Raw(this);
 
       this.Auth = new Collections.Auth(this);
       this.Properties = new Collections.Properties(this);
@@ -53,6 +54,7 @@ class ChannexBL {
 
       this.subscribe = this.ws.subscribe;
       this.publish = this.ws.publish;
+      this.query = Raw.query;
 
       instance = this;
     } else {

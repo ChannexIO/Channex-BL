@@ -24,6 +24,7 @@ import WhiteLabelEmailSettings from './white_label_email_settings';
 import Tasks from './tasks';
 import Groups from './groups';
 import Bookings from './bookings';
+import Raw from './raw';
 
 export default {
   Auth,
@@ -51,5 +52,6 @@ export default {
   WhiteLabelEmailSettings,
   Tasks,
   Groups,
-  Bookings
+  Bookings,
+  Raw
 };
