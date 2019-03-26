@@ -1,3 +1,4 @@
+import RatePlans from './rate_plans';
 let transport;
 let storage;
 const ENDPOINT = 'channels';
@@ -49,6 +50,7 @@ export default class Channels {
       .send('POST', ENDPOINT, {channel: attrs})
       .then(response => {
         storage.channelsAdd(response.data);
+        (new RatePlans({transport, storage})).list();
         return response;
       });
   }
@@ -58,6 +60,7 @@ export default class Channels {
       .send('PUT', `${ENDPOINT}/${attrs.id}`, {channel: attrs})
       .then(response => {
         storage.channelsAdd(response.data);
+        (new RatePlans({transport, storage})).list();
         return response;
       });
   }
