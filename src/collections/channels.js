@@ -70,6 +70,7 @@ export default class Channels {
       .send('DELETE', `${ENDPOINT}/${attrs.id}`)
       .then(response => {
         storage.channelsDrop(attrs);
+        (new RatePlans({transport, storage})).list();
         return response;
       });
   }
