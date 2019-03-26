@@ -7,7 +7,6 @@ const ACTION_HANDLERS = {
   [CHANNELS_HEALTH_LOAD]: (state, action) => {
     return Object.assign(
       {},
-      state || {},
       action.payload
         .reduce((acc, el) => {
           acc[el.id] = el.attributes;
