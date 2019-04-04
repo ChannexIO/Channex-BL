@@ -51,6 +51,7 @@ class ChannexBL {
       this.WhiteLabelEmailSettings = new Collections.WhiteLabelEmailSettings(this);
       this.Tasks = new Collections.Tasks(this);
       this.Bookings = new Collections.Bookings(this);
+      this.Issues = new Collections.Issues(this);
 
       this.subscribe = this.ws.subscribe;
       this.publish = this.ws.publish;

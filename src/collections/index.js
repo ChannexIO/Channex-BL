@@ -24,6 +24,7 @@ import WhiteLabelEmailSettings from './white_label_email_settings';
 import Tasks from './tasks';
 import Groups from './groups';
 import Bookings from './bookings';
+import Issues from './issues';
 import Raw from './raw';
 
 export default {
@@ -53,5 +54,6 @@ export default {
   Tasks,
   Groups,
   Bookings,
+  Issues,
   Raw
 };
