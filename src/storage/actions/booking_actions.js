@@ -3,8 +3,8 @@ import {
 } from '../constants';
 
 function bookingsLoad(storage) {
-  return function (groups) {
-    storage.dispatch({type: BOOKINGS_LOAD, payload: groups});
+  return function (bookings, meta) {
+    storage.dispatch({type: BOOKINGS_LOAD, payload: {bookings, meta}});
   };
 }
 
