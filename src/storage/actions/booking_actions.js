@@ -1,5 +1,6 @@
 import {
-  BOOKINGS_LOAD
+  BOOKINGS_LOAD,
+  BOOKINGS_ADD
 } from '../constants';
 
 function bookingsLoad(storage) {
@@ -8,4 +9,10 @@ function bookingsLoad(storage) {
   };
 }
 
-export default {bookingsLoad};
+function bookingsAdd(storage) {
+  return function (booking) {
+    storage.dispatch({type: BOOKINGS_ADD, payload: booking});
+  };
+}
+
+export default {bookingsLoad, bookingsAdd};

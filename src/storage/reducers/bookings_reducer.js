@@ -1,4 +1,4 @@
-import { BOOKINGS_LOAD } from '../constants';
+import { BOOKINGS_LOAD, BOOKINGS_ADD } from '../constants';
 
 const initialState = null;
 const ACTION_HANDLERS = {
@@ -16,6 +16,29 @@ const ACTION_HANDLERS = {
     return {
       entities,
       meta: action.payload.meta
+    };
+  },
+  [BOOKINGS_ADD]: (state, action) => {
+    let item = {};
+
+    item[action.payload.id] = action.payload.attributes;
+    if (action.payload.relationships) {
+      Object.keys(action.payload.relationships)
+        .forEach(
+          key => {
+            item[action.payload.id][`${key}_id`] = action.payload.relationships[key].data.id;
+          }
+        );
+    }
+    const entities = Object.assign(
+      {},
+      state ? state.entities || {} : {},
+      item
+    );
+
+    return {
+      entities,
+      meta: state ? state.meta : {}
     };
   }
 };

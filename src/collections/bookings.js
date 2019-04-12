@@ -16,4 +16,13 @@ export default class Bookigns {
         return response.data;
       });
   }
+
+  find(id) {
+    return transport
+      .send('GET', `${ENDPOINT}/${id}`)
+      .then(response => {
+        storage.bookingsAdd(response.data);
+        return response;
+      });
+  }
 }

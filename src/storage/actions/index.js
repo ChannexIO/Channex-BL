@@ -19,7 +19,7 @@ import {
 } from './white_label_email_settings_actions';
 import { tasksLoad } from './tasks_actions';
 import {groupsLoad, groupsAdd, groupsDrop} from './group_actions';
-import {bookingsLoad} from './booking_actions';
+import {bookingsLoad, bookingsAdd} from './booking_actions';
 import {issuesLoad} from './issue_actions';
 
 export default {
@@ -77,5 +77,7 @@ export default {
   groupsDrop,
 
   bookingsLoad,
+  bookingsAdd,
+
   issuesLoad
 };

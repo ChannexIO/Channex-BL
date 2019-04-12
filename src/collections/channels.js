@@ -65,6 +65,22 @@ export default class Channels {
       });
   }
 
+  full_sync(channel_id) {
+    return transport
+      .send('POST', `${ENDPOINT}/${channel_id}/full_sync`, {})
+      .then(response => {
+        return response;
+      });
+  }
+
+  find_action(channel_id, action_id) {
+    return transport
+      .send('GET', `${ENDPOINT}/${channel_id}/${action_id}`)
+      .then(response => {
+        return response;
+      });
+  }
+
   remove(attrs) {
     return transport
       .send('DELETE', `${ENDPOINT}/${attrs.id}`)
@@ -78,6 +94,22 @@ export default class Channels {
   available_to_connect() {
     return transport
       .send('GET', `${ENDPOINT}/list`)
+      .then(response => {
+        return response;
+      });
+  }
+
+  get_mapping_details(attrs) {
+    return transport
+      .send('POST', `${ENDPOINT}/mapping_details`, attrs)
+      .then(response => {
+        return response;
+      });
+  }
+
+  test_connection(attrs) {
+    return transport
+      .send('POST', `${ENDPOINT}/test_connection`, attrs)
       .then(response => {
         return response;
       });
