@@ -1,3 +1,4 @@
+import Groups from './groups';
 let transport;
 let storage;
 const ENDPOINT = 'properties';
@@ -40,6 +41,13 @@ export default class Properties {
       .send('POST', ENDPOINT, {property: attrs})
       .then(response => {
         storage.propertiesAdd(response.data);
+
+        if (response.data.relationships && response.data.relationships.groups) {
+          response.data.relationships.groups.data.forEach(group => {
+            (new Groups({transport, storage})).find(group.id);
+          });
+        }
+
         return response;
       });
   }
