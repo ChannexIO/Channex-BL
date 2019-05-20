@@ -9,18 +9,18 @@ export default class Properties {
     storage = container.storage;
   }
 
-  list(filters = {}) {
+  list(filter = {}, pagination = {}, order = {}) {
     return transport
-      .send('GET', ENDPOINT, {filter: filters})
+      .send('GET', ENDPOINT, {filter, pagination, order})
       .then(response => {
         storage.propertiesLoad(response.data);
         return response.data;
       });
   }
 
-  health() {
+  health(filter = {}, pagination = {}, order = {}) {
     return transport
-      .send('GET', `${ENDPOINT}/health`)
+      .send('GET', `${ENDPOINT}/health`, {filter, pagination, order})
       .then(response => {
         storage.propertiesHealthLoad(response.data);
         return response.data;
