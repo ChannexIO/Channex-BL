@@ -5,15 +5,20 @@ import {
 const initialState = null;
 const ACTION_HANDLERS = {
   [PROPERTIES_HEALTH_LOAD]: (state, action) => {
-    return Object.assign(
+    const entities = Object.assign(
       {},
       state || {},
-      action.payload
+      action.payload.stats
         .reduce((acc, el) => {
           acc[el.id] = el.attributes;
           return acc;
         }, {})
     );
+
+    return {
+      entities,
+      meta: action.payload.meta
+    };
   }
 };
 

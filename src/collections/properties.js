@@ -13,8 +13,8 @@ export default class Properties {
     return transport
       .send('GET', ENDPOINT, {filter, pagination, order})
       .then(response => {
-        storage.propertiesLoad(response.data);
-        return response.data;
+        storage.propertiesLoad(response.data, response.meta);
+        return response;
       });
   }
 
@@ -22,8 +22,8 @@ export default class Properties {
     return transport
       .send('GET', `${ENDPOINT}/health`, {filter, pagination, order})
       .then(response => {
-        storage.propertiesHealthLoad(response.data);
-        return response.data;
+        storage.propertiesHealthLoad(response.data, response.meta);
+        return response;
       });
   }
 

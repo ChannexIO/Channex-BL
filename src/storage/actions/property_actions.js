@@ -4,8 +4,8 @@ import {
 } from '../constants';
 
 function propertiesLoad(storage) {
-  return function (properties) {
-    storage.dispatch({type: PROPERTIES_LOAD, payload: properties});
+  return function (properties, meta) {
+    storage.dispatch({type: PROPERTIES_LOAD, payload: {properties, meta}});
   };
 }
 

@@ -3,7 +3,7 @@ import { PROPERTIES_LOAD, PROPERTIES_ADD, PROPERTIES_DROP } from '../constants';
 const initialState = null;
 const ACTION_HANDLERS = {
   [PROPERTIES_LOAD]: (state, action) => {
-    return action.payload.reduce((acc, el) => {
+    const entities = action.payload.properties.reduce((acc, el) => {
       acc[el.id] = el.attributes;
       if (el.relationships) {
         Object.keys(el.relationships).forEach(key => {
@@ -21,6 +21,11 @@ const ACTION_HANDLERS = {
       }
       return acc;
     }, {});
+
+    return {
+      entities,
+      meta: action.payload.meta
+    };
   },
   [PROPERTIES_ADD]: (state, action) => {
     let item = {};
