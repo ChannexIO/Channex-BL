@@ -1,19 +1,12 @@
-import {
-  PROPERTIES_HEALTH_LOAD
-} from '../constants';
+import { PROPERTIES_HEALTH_LOAD } from '../constants';
 
 const initialState = null;
 const ACTION_HANDLERS = {
   [PROPERTIES_HEALTH_LOAD]: (state, action) => {
-    const entities = Object.assign(
-      {},
-      state || {},
-      action.payload.stats
-        .reduce((acc, el) => {
-          acc[el.id] = el.attributes;
-          return acc;
-        }, {})
-    );
+    const entities = action.payload.stats.reduce((acc, el) => {
+      acc[el.id] = el.attributes;
+      return acc;
+    }, {});
 
     return {
       entities,
