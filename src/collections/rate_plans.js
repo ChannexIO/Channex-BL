@@ -8,9 +8,9 @@ export default class RatePlans {
     storage = container.storage;
   }
 
-  list(filters = {}) {
+  list(filter = {}) {
     return transport
-      .send('GET', ENDPOINT, {filters})
+      .send('GET', ENDPOINT, {filter})
       .then(response => {
         storage.ratePlansLoad(response.data);
         return response.data;
