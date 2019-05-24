@@ -46,10 +46,12 @@ const ACTION_HANDLERS = {
         }
       });
     }
-    return Object.assign({}, state || {}, item);
+    const entities = Object.assign({}, state.entities, item);
+
+    return Object.assign({}, state || {}, entities);
   },
   [PROPERTIES_DROP]: (state, action) => {
-    delete state[action.payload.id];
+    delete state.entities[action.payload.id];
     return Object.assign({}, state || {}, {});
   }
 };
