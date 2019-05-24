@@ -1,6 +1,8 @@
 import { SESSION_ADD, CHOOSE_PROPERTY, CHOOSE_GROUP } from '../constants';
 
-const initialState = null;
+const CACHE_KEY = 'CHANNEX_SESSION';
+const cache = localStorage.getItem(CACHE_KEY);
+const initialState = cache ? JSON.parse(cache) : null;
 const ACTION_HANDLERS = {
   [SESSION_ADD]: (state, action) => {
     return action.payload;
@@ -39,6 +41,9 @@ const ACTION_HANDLERS = {
 
 export default function sessionReducer(state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type];
+  const updated_state = handler ? handler(state, action) : state;
 
-  return handler ? handler(state, action) : state;
+  localStorage.setItem(CACHE_KEY, JSON.stringify(updated_state));
+
+  return updated_state;
 }
