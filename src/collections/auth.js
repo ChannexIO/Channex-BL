@@ -13,11 +13,13 @@ export default class Auth {
     return transport
       .send('POST', 'sign_in', {user: attrs})
       .then(response => {
+        let result = response;
+
         if (response.data.attributes.token) {
           transport.registerAccessToken(response.data.attributes.token);
           storage.sessionAdd(response.data.attributes);
           storage.userAdd(response.data.relationships.user.data.attributes);
-          Promise.all([
+          result = Promise.all([
             (new Groups({transport, storage})).list(),
             (new Properties({transport, storage})).list()
           ]).then(_ => {
@@ -25,7 +27,7 @@ export default class Auth {
           });
         }
 
-        return response;
+        return result;
       });
   }
 
@@ -33,13 +35,21 @@ export default class Auth {
     return transport
       .send('POST', 'sign_up', {user: attrs})
       .then(response => {
+        let result = response;
+
         if (response.data.attributes.token) {
           transport.registerAccessToken(response.data.attributes.token);
           storage.sessionAdd(response.data.attributes);
           storage.userAdd(response.data.relationships.user.data.attributes);
+          result = Promise.all([
+            (new Groups({transport, storage})).list(),
+            (new Properties({transport, storage})).list()
+          ]).then(_ => {
+            return response;
+          });
         }
 
-        return response;
+        return result;
       });
   }
 
