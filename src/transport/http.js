@@ -61,7 +61,9 @@ export default class HTTPTransport {
   }
 
   _url(endpoint, params = null) {
-    return `${this.settings.protocol}://${this.settings.server}/api/v1/${endpoint}${stringifyArguments(params)}`;
+    const protocol = this.settings.secure ? 'https' : 'http';
+
+    return `${protocol}://${this.settings.server}/api/v1/${endpoint}${stringifyArguments(params)}`;
   }
 
   _prepareAnswer(response) {

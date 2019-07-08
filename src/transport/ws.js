@@ -11,7 +11,7 @@ const EVENTS = ['property:state_changed', 'channel:health_changed'];
 const subscriptions = {};
 
 function createSocket(context) {
-  const socket = new Socket(`ws://${context.settings.server}/socket`);
+  const socket = new Socket(`${context.settings.secure ? 'ws' : 'wss'}://${context.settings.server}/socket`);
 
   socket.onError(() => console.log(CONNECTION_ERROR_MSG));
   socket.onClose(() => console.log(CONNECTION_CLOSE_MSG));

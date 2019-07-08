@@ -4,6 +4,7 @@ import Storage from './storage';
 
 const defaultOptions = {
   protocol: 'http',
+  secure: true,
   server: 'staging.channex.io'
 };
 
@@ -22,7 +23,7 @@ class ChannexBL {
       // Register transport methods
       this.http = new HTTPTransport(this.settings, getToken(this.storage.getState()));
       this.ws = new WSTransport(this.settings, getToken(this.storage.getState()));
-      this.transport = this.settings.protocol === 'ws' ? this.ws : this.http;
+      this.transport = this.http;
       const Raw = new Collections.Raw(this);
 
       this.Auth = new Collections.Auth(this);
