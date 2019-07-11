@@ -5,8 +5,8 @@ import {
 } from '../constants';
 
 function roomTypesLoad(storage) {
-  return function (roomTypes) {
-    storage.dispatch({type: ROOM_TYPES_LOAD, payload: roomTypes});
+  return function (records, meta) {
+    storage.dispatch({type: ROOM_TYPES_LOAD, payload: {records, meta}});
   };
 }
 

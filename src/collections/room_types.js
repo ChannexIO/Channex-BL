@@ -12,7 +12,7 @@ export default class RoomTypes {
     return transport
       .send('GET', ENDPOINT, {filter, pagination, order})
       .then(response => {
-        storage.roomTypesLoad(response.data);
+        storage.roomTypesLoad(response.data, response.meta);
         return response.data;
       });
   }

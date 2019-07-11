@@ -1,52 +1,18 @@
 import { PROPERTIES_LOAD, PROPERTIES_ADD, PROPERTIES_DROP } from '../constants';
+import extractRelationships from '../../utils/relationships_extractor';
 
 const initialState = null;
 const ACTION_HANDLERS = {
   [PROPERTIES_LOAD]: (state, action) => {
-    const entities = action.payload.properties.reduce((acc, el) => {
-      acc[el.id] = el.attributes;
-      if (el.relationships) {
-        Object.keys(el.relationships).forEach(key => {
-          if (Array.isArray(el.relationships[key].data)) {
-            acc[el.id][key] = el.relationships[key].data
-              .map(el => el.attributes)
-              .reduce((acc, el) => {
-                acc[el.id] = el;
-                return acc;
-              }, {});
-          } else {
-            acc[el.id][`${key}_id`] = el.relationships[key].data.id;
-          }
-        });
-      }
-      return acc;
-    }, {});
-
     return {
-      entities,
+      entities: extractRelationships(action.payload.properties),
       meta: action.payload.meta
     };
   },
   [PROPERTIES_ADD]: (state, action) => {
-    let item = {};
-
-    item[action.payload.id] = action.payload.attributes;
-    if (action.payload.relationships) {
-      Object.keys(action.payload.relationships).forEach(key => {
-        if (Array.isArray(action.payload.relationships[key].data)) {
-          item[action.payload.id][key] = action.payload.relationships[key].data
-            .map(el => el.attributes)
-            .reduce((acc, el) => {
-              acc[el.id] = el;
-              return acc;
-            }, {});
-        } else {
-          item[action.payload.id][`${key}_id`] =
-            action.payload.relationships[key].data.id;
-        }
-      });
-    }
-    const entities = Object.assign({}, state.entities, item);
+    const entities = Object.assign({}, state.entities, {
+      [action.payload.id]: extractRelationships(action.payload)
+    });
 
     return Object.assign({}, state || {}, {entities: entities});
   },
