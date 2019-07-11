@@ -13,7 +13,10 @@ export default class RoomTypes {
       .send('GET', ENDPOINT, {filter, pagination, order})
       .then(response => {
         storage.roomTypesLoad(response.data, response.meta);
-        return response.data;
+        return {
+          entities: response.data.map(el => el.attributes),
+          meta: response.meta
+        };
       });
   }
 
