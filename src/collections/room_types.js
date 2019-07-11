@@ -8,9 +8,9 @@ export default class RoomTypes {
     storage = container.storage;
   }
 
-  list(filters = {}) {
+  list(filter = {}, pagination = {}, order = {}) {
     return transport
-      .send('GET', ENDPOINT, {filter: filters})
+      .send('GET', ENDPOINT, {filter, pagination, order})
       .then(response => {
         storage.roomTypesLoad(response.data);
         return response.data;
