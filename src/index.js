@@ -4,8 +4,8 @@ import Storage from './storage';
 
 const defaultOptions = {
   protocol: 'http',
-  secure: true,
-  server: 'staging.channex.io'
+  secure: false,
+  server: 'localhost:4000'
 };
 
 let instance = null;

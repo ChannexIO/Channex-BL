@@ -14,14 +14,17 @@ const ACTION_HANDLERS = {
     };
   },
   [ROOM_TYPES_ADD]: (state, action) => {
-    const entities = Object.assign({}, state.entities, {
+    const state_entities = state && state.entities ? state.entities : {};
+    const entities = Object.assign({}, state_entities || {}, {
       [action.payload.id]: extractRelationships(action.payload)
     });
 
     return Object.assign({}, state || {}, {entities: entities});
   },
   [ROOM_TYPES_DROP]: (state, action) => {
-    delete state.entities[action.payload.id];
+    if (state && state.entities) {
+      delete state.entities[action.payload.id];
+    }
     return Object.assign({}, state || {}, {});
   }
 };
