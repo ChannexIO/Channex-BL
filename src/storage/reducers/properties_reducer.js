@@ -18,7 +18,9 @@ const ACTION_HANDLERS = {
     return Object.assign({}, state || {}, {entities: entities});
   },
   [PROPERTIES_DROP]: (state, action) => {
-    delete state.entities[action.payload.id];
+    if (state && state.entities) {
+      delete state.entities[action.payload.id];
+    }
     return Object.assign({}, state || {}, {});
   }
 };
