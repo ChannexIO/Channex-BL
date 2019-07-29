@@ -29,6 +29,6 @@ function extractRelationships(models) {
   }
 
   return result;
-};
+}
 
 export default extractRelationships;

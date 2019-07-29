@@ -26,6 +26,7 @@ import Groups from './groups';
 import Bookings from './bookings';
 import Issues from './issues';
 import Raw from './raw';
+import PropertyUsers from './property_users';
 
 export default {
   Auth,
@@ -55,5 +56,6 @@ export default {
   Groups,
   Bookings,
   Issues,
-  Raw
+  Raw,
+  PropertyUsers
 };
