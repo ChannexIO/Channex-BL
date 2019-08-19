@@ -8,8 +8,8 @@ function extractRelationshipsFromEntity(model) {
           return acc;
         }, {});
     } else {
-      model.attributes[`${key}_id`] =
-        model.relationships[key].data.id;
+      model.attributes[`${key}_id`] = model.relationships[key].data.id;
+      model.attributes[key] = model.relationships[key].data;
     }
   });
 
@@ -29,6 +29,6 @@ function extractRelationships(models) {
   }
 
   return result;
-};
+}
 
 export default extractRelationships;
