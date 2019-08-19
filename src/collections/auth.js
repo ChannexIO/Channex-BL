@@ -84,6 +84,12 @@ export default class Auth {
       .then(response => response);
   }
 
+  confirmInvite(attrs) {
+    return transport
+      .send('POST', 'confirm_invite', {user: attrs})
+      .then(response => response);
+  }
+
   chooseProperty(property) {
     storage.chooseProperty(property);
   }
