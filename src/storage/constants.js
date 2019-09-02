@@ -57,3 +57,4 @@ export const CHANNEL_ACTIONS_LOAD = 'CHANNEL_ACTIONS_LOAD';
 export const BOOKINGS_LOAD = 'BOOKINGS_LOAD';
 export const BOOKINGS_ADD = 'BOOKINGS_ADD';
 export const ISSUES_LOAD = 'ISSUES_LOAD';
+export const ISSUES_ADD = 'ISSUES_ADD';
