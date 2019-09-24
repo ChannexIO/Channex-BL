@@ -94,6 +94,25 @@ export default class Channels {
   }
 
   get_mapping_details(attrs) {
+    const N = 50;
+
+    return Promise.resolve({
+      data: {
+        pricing_plan_id_dictionary: [...Array(N)].map((_, i) => ({
+          id: i,
+          title: `pricing_plan_id_${i}`
+        })),
+        restriction_plan_id_dictionary: [...Array(N)].map((_, i) => ({
+          id: i,
+          title: `restriction_plan_id_${i}`,
+        })),
+        room_id_dictionary: [...Array(N)].map((_, i) => ({
+          id: i,
+          title: `room_id_${i}`
+        })),
+      }
+    });
+
     return transport
       .send('POST', `${ENDPOINT}/mapping_details`, attrs)
       .then(response => {
@@ -103,6 +122,12 @@ export default class Channels {
   }
 
   test_connection(attrs) {
+    return Promise.resolve({
+      data: {
+        success: true
+      }
+    });
+
     return transport
       .send('POST', `${ENDPOINT}/test_connection`, attrs)
       .then(response => {
