@@ -94,19 +94,21 @@ export default class Channels {
   }
 
   get_mapping_details(attrs) {
-    const N = 50;
+    const PRICING_PLAN = 10;
+    const RESTRICTION_PLAN = 10;
+    const ROOM = 10;
 
     return Promise.resolve({
       data: {
-        pricing_plan_id_dictionary: [...Array(N)].map((_, i) => ({
+        pricing_plan_id_dictionary: [...Array(PRICING_PLAN)].map((_, i) => ({
           id: i,
           title: `pricing_plan_id_${i}`
         })),
-        restriction_plan_id_dictionary: [...Array(N)].map((_, i) => ({
+        restriction_plan_id_dictionary: [...Array(RESTRICTION_PLAN)].map((_, i) => ({
           id: i,
           title: `restriction_plan_id_${i}`,
         })),
-        room_id_dictionary: [...Array(N)].map((_, i) => ({
+        room_id_dictionary: [...Array(ROOM)].map((_, i) => ({
           id: i,
           title: `room_id_${i}`
         })),
