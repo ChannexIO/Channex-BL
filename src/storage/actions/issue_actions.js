@@ -1,5 +1,6 @@
 import {
-  ISSUES_LOAD
+  ISSUES_LOAD,
+  ISSUES_ADD
 } from '../constants';
 
 function issuesLoad(storage) {
@@ -8,4 +9,13 @@ function issuesLoad(storage) {
   };
 }
 
-export default {issuesLoad};
+function issuesAdd(storage) {
+  return function (issue) {
+    storage.dispatch({type: ISSUES_ADD, payload: issue});
+  };
+}
+
+export default {
+  issuesLoad,
+  issuesAdd
+};

@@ -16,4 +16,13 @@ export default class Issues {
         return response.data;
       });
   }
+
+  find(id) {
+    return transport
+      .send('GET', `${ENDPOINT}/${id}`)
+      .then(response => {
+        storage.issuesAdd(response.data);
+        return response;
+      });
+  }
 }

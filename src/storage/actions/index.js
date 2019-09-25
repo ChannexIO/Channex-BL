@@ -20,7 +20,7 @@ import {
 import { tasksLoad } from './tasks_actions';
 import {groupsLoad, groupsAdd, groupsDrop} from './group_actions';
 import {bookingsLoad, bookingsAdd} from './booking_actions';
-import {issuesLoad} from './issue_actions';
+import {issuesLoad, issuesAdd} from './issue_actions';
 
 export default {
   sessionAdd,
@@ -79,5 +79,6 @@ export default {
   bookingsLoad,
   bookingsAdd,
 
-  issuesLoad
+  issuesLoad,
+  issuesAdd
 };

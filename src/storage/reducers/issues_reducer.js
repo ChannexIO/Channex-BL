@@ -1,6 +1,7 @@
-import { ISSUES_LOAD } from '../constants';
+import { ISSUES_LOAD, ISSUES_ADD } from '../constants';
 
 const initialState = null;
+
 const ACTION_HANDLERS = {
   [ISSUES_LOAD]: (state, action) => {
     return action.payload.reduce((acc, el) => {
@@ -21,6 +22,16 @@ const ACTION_HANDLERS = {
       }
       return acc;
     }, {});
+  },
+  [ISSUES_ADD]: (state, action) => {
+    let item = {};
+
+    item[action.payload.id] = action.payload.attributes;
+    return Object.assign(
+      {},
+      state || {},
+      item
+    );
   }
 };
 
