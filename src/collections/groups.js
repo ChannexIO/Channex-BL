@@ -1,4 +1,6 @@
 import Properties from './properties';
+import handleError from '../utils/handle_error';
+
 let transport;
 let storage;
 const ENDPOINT = 'groups';
@@ -15,7 +17,8 @@ export default class Groups {
       .then(response => {
         storage.groupsLoad(response.data);
         return response.data;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   find(id) {
@@ -24,7 +27,8 @@ export default class Groups {
       .then(response => {
         storage.groupsAdd(response.data);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   create(attrs) {
@@ -33,7 +37,8 @@ export default class Groups {
       .then(response => {
         storage.groupsAdd(response.data);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   update(attrs) {
@@ -42,7 +47,8 @@ export default class Groups {
       .then(response => {
         storage.groupsAdd(response.data);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   remove(attrs) {
@@ -51,7 +57,8 @@ export default class Groups {
       .then(response => {
         storage.groupsDrop(attrs);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   addProperty(group, property_id) {
@@ -64,7 +71,8 @@ export default class Groups {
         ]).then(_ => {
           return response;
         });
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   removeProperty(group, property_id) {
@@ -77,6 +85,7 @@ export default class Groups {
         ]).then(_ => {
           return response;
         });
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 }

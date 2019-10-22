@@ -1,4 +1,6 @@
 import Groups from './groups';
+import handleError from '../utils/handle_error';
+
 let transport;
 let storage;
 const ENDPOINT = 'properties';
@@ -15,7 +17,8 @@ export default class Properties {
       .then(response => {
         storage.propertiesLoad(response.data, response.meta);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   health(filter = {}, pagination = {}, order = {}) {
@@ -24,7 +27,8 @@ export default class Properties {
       .then(response => {
         storage.propertiesHealthLoad(response.data, response.meta);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   find(id) {
@@ -33,7 +37,8 @@ export default class Properties {
       .then(response => {
         storage.propertiesAdd(response.data);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   create(attrs) {
@@ -49,7 +54,8 @@ export default class Properties {
         }
 
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   update(attrs) {
@@ -58,6 +64,7 @@ export default class Properties {
       .then(response => {
         storage.propertiesAdd(response.data);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 }
