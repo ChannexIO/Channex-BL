@@ -1,11 +1,12 @@
 import handleError from '../utils/handle_error';
+import extractRelationships from '../utils/relationships_extractor';
 
 let transport;
 let storage;
 
 const ENDPOINT = 'bookings';
 
-export default class Bookigns {
+export default class Bookings {
   constructor(container) {
     transport = container.transport;
     storage = container.storage;
@@ -21,13 +22,10 @@ export default class Bookigns {
       .catch((error) => handleError(error, storage, transport));
   }
 
-  find(id) {
+  find(id, { relationships } = {}) {
     return transport
-      .send('GET', `${ENDPOINT}/${id}`)
-      .then(response => {
-        storage.bookingsAdd(response.data);
-        return response;
-      })
+      .send('GET', `${ENDPOINT}/${id}`, { relationships })
+      .then(response => extractRelationships(response.data))
       .catch((error) => handleError(error, storage, transport));
   }
 }
