@@ -1,3 +1,5 @@
+import handleError from '../utils/handle_error';
+
 let transport;
 let storage;
 const ENDPOINT = 'rate_plans';
@@ -14,7 +16,8 @@ export default class RatePlans {
       .then(response => {
         storage.ratePlansLoad(response.data);
         return response.data;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   find(id) {
@@ -23,7 +26,8 @@ export default class RatePlans {
       .then(response => {
         storage.ratePlansAdd(response.data);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   create(attrs) {
@@ -32,7 +36,8 @@ export default class RatePlans {
       .then(response => {
         storage.ratePlansAdd(response.data);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   update(attrs) {
@@ -41,7 +46,8 @@ export default class RatePlans {
       .then(response => {
         storage.ratePlansAdd(response.data);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   remove(attrs) {
@@ -50,6 +56,7 @@ export default class RatePlans {
       .then(response => {
         storage.ratePlansDrop(attrs);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 }

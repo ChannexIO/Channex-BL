@@ -1,3 +1,5 @@
+import handleError from '../utils/handle_error';
+
 let transport;
 let storage;
 const ENDPOINT = 'bookings';
@@ -14,7 +16,8 @@ export default class Bookigns {
       .then(response => {
         storage.bookingsLoad(response.data, response.meta);
         return response.data;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   find(id) {
@@ -23,6 +26,7 @@ export default class Bookigns {
       .then(response => {
         storage.bookingsAdd(response.data);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 }

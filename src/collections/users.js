@@ -1,3 +1,5 @@
+import handleError from '../utils/handle_error';
+
 let transport;
 let storage;
 const ENDPOINT = 'users';
@@ -14,7 +16,8 @@ export default class Users {
       .then(response => {
         storage.usersLoad(response.data);
         return response.data;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   find(id) {
@@ -23,7 +26,8 @@ export default class Users {
       .then(response => {
         storage.usersAdd(response.data);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   create(attrs) {
@@ -32,7 +36,8 @@ export default class Users {
       .then(response => {
         storage.usersAdd(response.data);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   update(attrs) {
@@ -41,6 +46,7 @@ export default class Users {
       .then(response => {
         storage.usersAdd(response.data);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 }

@@ -1,3 +1,5 @@
+import handleError from '../utils/handle_error';
+
 let transport;
 
 export default class ARI {
@@ -8,13 +10,15 @@ export default class ARI {
   get(filters) {
     return transport
       .send('GET', 'restrictions', {filter: filters})
-      .then(response => response);
+      .then(response => response)
+      .catch((error) => handleError(error, storage, transport));
   }
 
   availability(filters) {
     return transport
       .send('GET', 'availability', {filter: filters})
-      .then(response => response);
+      .then(response => response)
+      .catch((error) => handleError(error, storage, transport));
   }
 
   update(attrs) {
@@ -22,7 +26,8 @@ export default class ARI {
       .send('POST', 'restrictions', {values: attrs})
       .then(response => {
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   updateAvailability(attrs) {
@@ -30,6 +35,7 @@ export default class ARI {
       .send('POST', 'availability', {values: attrs})
       .then(response => {
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 }

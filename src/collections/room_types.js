@@ -1,3 +1,5 @@
+import handleError from '../utils/handle_error';
+
 let transport;
 let storage;
 const ENDPOINT = 'room_types';
@@ -17,7 +19,8 @@ export default class RoomTypes {
           entities: response.data.map(el => el.attributes),
           meta: response.meta
         };
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   find(id) {
@@ -26,7 +29,8 @@ export default class RoomTypes {
       .then(response => {
         storage.roomTypesAdd(response.data);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   create(attrs) {
@@ -35,7 +39,8 @@ export default class RoomTypes {
       .then(response => {
         storage.roomTypesAdd(response.data);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   update(attrs) {
@@ -44,7 +49,8 @@ export default class RoomTypes {
       .then(response => {
         storage.roomTypesAdd(response.data);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   remove(attrs) {
@@ -53,6 +59,7 @@ export default class RoomTypes {
       .then(response => {
         storage.roomTypesDrop(attrs);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 }

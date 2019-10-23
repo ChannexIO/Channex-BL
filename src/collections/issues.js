@@ -1,3 +1,5 @@
+import handleError from '../utils/handle_error';
+
 let transport;
 let storage;
 const ENDPOINT = 'issues';
@@ -14,7 +16,8 @@ export default class Issues {
       .then(response => {
         storage.issuesLoad(response.data, response.meta);
         return response.data;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   find(id) {
@@ -23,6 +26,7 @@ export default class Issues {
       .then(response => {
         storage.issuesAdd(response.data);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 }

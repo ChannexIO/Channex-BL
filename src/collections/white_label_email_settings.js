@@ -1,3 +1,5 @@
+import handleError from '../utils/handle_error';
+
 let transport;
 let storage;
 const ENDPOINT = 'wl_email_settings';
@@ -14,7 +16,8 @@ export default class WhiteLabelEmailSettings {
       .then(response => {
         storage.whiteLabelEmailSettingsLoad(response.data);
         return response.data;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   find(id) {
@@ -23,7 +26,8 @@ export default class WhiteLabelEmailSettings {
       .then(response => {
         storage.whiteLabelEmailSettingsAdd(response.data);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   create(attrs) {
@@ -32,7 +36,8 @@ export default class WhiteLabelEmailSettings {
       .then(response => {
         storage.whiteLabelEmailSettingsAdd(response.data);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   update(attrs) {
@@ -41,6 +46,7 @@ export default class WhiteLabelEmailSettings {
       .then(response => {
         storage.whiteLabelEmailSettingsAdd(response.data);
         return response;
-      });
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 }
