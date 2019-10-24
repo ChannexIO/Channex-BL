@@ -55,6 +55,7 @@ class ChannexBL {
       this.Issues = new Collections.Issues(this);
       this.PropertyUsers = new Collections.PropertyUsers(this);
       this.GroupUsers = new Collections.GroupUsers(this);
+      this.HotelPolicies = new Collections.HotelPolicies(this);
 
       this.subscribe = this.ws.subscribe;
       this.publish = this.ws.publish;
