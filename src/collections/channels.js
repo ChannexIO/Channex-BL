@@ -36,7 +36,11 @@ export default class Channels {
       .send('GET', `${ENDPOINT}/actions`, {filter, pagination, order})
       .then(response => {
         storage.channelActionsLoad(response.data, response.meta);
-        return response.data;
+
+        return {
+          data: response.data,
+          meta: response.meta,
+        }
       })
       .catch((error) => handleError(error, storage, transport));
   }
