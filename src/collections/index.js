@@ -28,6 +28,7 @@ import Issues from './issues';
 import Raw from './raw';
 import PropertyUsers from './property_users';
 import GroupUsers from './group_users';
+import HotelPolicies from './hotel_policies';
 
 export default {
   Auth,
@@ -59,5 +60,6 @@ export default {
   Issues,
   Raw,
   PropertyUsers,
-  GroupUsers
+  GroupUsers,
+  HotelPolicies,
 };

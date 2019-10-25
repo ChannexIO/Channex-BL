@@ -19,6 +19,7 @@ import tasksReducer from './tasks_reducer';
 import groupsReducer from './groups_reducer';
 import bookingsReducer from './bookings_reducer';
 import issuesReducer from './issues_reducer';
+import hotelPoliciesReducer from './hotel_policies_reducer';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -39,7 +40,8 @@ const rootReducer = combineReducers({
   tasks: tasksReducer,
   groups: groupsReducer,
   bookings: bookingsReducer,
-  issues: issuesReducer
+  issues: issuesReducer,
+  hotelPolicies: hotelPoliciesReducer
 });
 
 export default rootReducer;
