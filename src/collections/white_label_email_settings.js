@@ -2,6 +2,7 @@ import handleError from '../utils/handle_error';
 
 let transport;
 let storage;
+
 const ENDPOINT = 'wl_email_settings';
 
 export default class WhiteLabelEmailSettings {

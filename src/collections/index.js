@@ -61,5 +61,5 @@ export default {
   Raw,
   PropertyUsers,
   GroupUsers,
-  HotelPolicies,
+  HotelPolicies
 };

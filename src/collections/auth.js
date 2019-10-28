@@ -1,6 +1,5 @@
 import Groups from './groups';
 import Properties from './properties';
-import handleError from '../utils/handle_error';
 
 let transport;
 let storage;

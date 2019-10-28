@@ -1,9 +1,9 @@
 export default (error, storage, transport) => {
-  if (error.errors.code === "unauthorized") {
+  if (error && error.errors && error.errors.code === 'unauthorized') {
     transport.registerAccessToken(null);
     storage.sessionAdd({});
     storage.userAdd({});
   }
 
   throw error;
-}
+};

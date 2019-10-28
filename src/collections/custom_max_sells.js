@@ -1,11 +1,14 @@
 import handleError from '../utils/handle_error';
 
 let transport;
+let storage;
+
 const ENDPOINT = 'custom_max_sell';
 
 export default class CustomMaxSells {
   constructor(container) {
     transport = container.transport;
+    storage = container.storage;
   }
 
   list(filters = {}) {

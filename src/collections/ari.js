@@ -1,10 +1,12 @@
 import handleError from '../utils/handle_error';
 
 let transport;
+let storage;
 
 export default class ARI {
   constructor(container) {
     transport = container.transport;
+    storage = container.storage;
   }
 
   get(filters) {
