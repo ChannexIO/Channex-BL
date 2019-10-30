@@ -3,6 +3,7 @@ import handleError from '../utils/handle_error';
 
 let transport;
 let storage;
+
 const ENDPOINT = 'properties';
 
 export default class Properties {

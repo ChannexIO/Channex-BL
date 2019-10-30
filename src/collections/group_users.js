@@ -2,11 +2,14 @@ import extractRelationships from '../utils/relationships_extractor';
 import handleError from '../utils/handle_error';
 
 let transport;
+let storage;
+
 const ENDPOINT = 'group_users';
 
 export default class GroupUsers {
   constructor(container) {
     transport = container.transport;
+    storage = container.storage;
   }
 
   list(filters = {}) {

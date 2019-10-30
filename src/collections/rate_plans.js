@@ -2,6 +2,7 @@ import handleError from '../utils/handle_error';
 
 let transport;
 let storage;
+
 const ENDPOINT = 'rate_plans';
 
 export default class RatePlans {

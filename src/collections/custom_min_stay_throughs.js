@@ -1,11 +1,14 @@
 import handleError from '../utils/handle_error';
 
 let transport;
+let storage;
+
 const ENDPOINT = 'custom_min_stay_through';
 
 export default class CustomMinStayThroughs {
   constructor(container) {
     transport = container.transport;
+    storage = container.storage;
   }
 
   list(filters = {}) {

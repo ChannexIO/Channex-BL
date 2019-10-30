@@ -1,5 +1,6 @@
 let transport;
 let storage;
+
 const ENDPOINT = 'hotel_policies';
 
 export default class HotelPolicies {
