@@ -43,7 +43,7 @@ const rootReducer = combineReducers({
   bookings: bookingsReducer,
   issues: issuesReducer,
   hotelPolicies: hotelPoliciesReducer,
-  cancellationPolicies: cancellationPoliciesReducer,
+  cancellationPolicies: cancellationPoliciesReducer
 });
 
 export default rootReducer;
