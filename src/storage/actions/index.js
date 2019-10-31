@@ -22,6 +22,11 @@ import {groupsLoad, groupsAdd, groupsDrop} from './group_actions';
 import {bookingsLoad, bookingsAdd} from './booking_actions';
 import {issuesLoad, issuesAdd} from './issue_actions';
 import {hotelPoliciesLoad, hotelPoliciesAdd, hotelPoliciesDrop} from './hotel_policies_actions';
+import {
+  cancellationPoliciesLoad,
+  cancellationPoliciesAdd,
+  cancellationPoliciesDrop
+} from './cancellation_policies_actions';
 
 export default {
   sessionAdd,
@@ -85,5 +90,9 @@ export default {
 
   hotelPoliciesLoad,
   hotelPoliciesAdd,
-  hotelPoliciesDrop
+  hotelPoliciesDrop,
+
+  cancellationPoliciesLoad,
+  cancellationPoliciesAdd,
+  cancellationPoliciesDrop
 };

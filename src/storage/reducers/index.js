@@ -20,6 +20,7 @@ import groupsReducer from './groups_reducer';
 import bookingsReducer from './bookings_reducer';
 import issuesReducer from './issues_reducer';
 import hotelPoliciesReducer from './hotel_policies_reducer';
+import cancellationPoliciesReducer from './cancellation_policies_reducer';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -41,7 +42,8 @@ const rootReducer = combineReducers({
   groups: groupsReducer,
   bookings: bookingsReducer,
   issues: issuesReducer,
-  hotelPolicies: hotelPoliciesReducer
+  hotelPolicies: hotelPoliciesReducer,
+  cancellationPolicies: cancellationPoliciesReducer
 });
 
 export default rootReducer;

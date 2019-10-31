@@ -29,6 +29,7 @@ import Raw from './raw';
 import PropertyUsers from './property_users';
 import GroupUsers from './group_users';
 import HotelPolicies from './hotel_policies';
+import CancellationPolicies from './cancellation_policies';
 
 export default {
   Auth,
@@ -61,5 +62,6 @@ export default {
   Raw,
   PropertyUsers,
   GroupUsers,
-  HotelPolicies
+  HotelPolicies,
+  CancellationPolicies
 };
