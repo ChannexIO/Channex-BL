@@ -6,7 +6,7 @@ import {ratePlansLoad, ratePlansAdd, ratePlansDrop} from './rate_plan_actions';
 import {rateCategoriesLoad, rateCategoriesAdd, rateCategoriesDrop} from './rate_category_actions';
 import {channelsLoad, channelsAdd, channelsDrop} from './channel_actions';
 import {channelsHealthLoad} from './channel_health_actions';
-import {channelActionsLoad} from './channel_action_actions';
+import {channelEventsLoad} from './channel_events_actions';
 import {emailTemplatesLoad, emailTemplatesAdd, emailTemplatesDrop} from './email_template_actions';
 import {userAdd} from './current_user_actions';
 import {usersLoad, usersAdd, usersDrop} from './user_actions';
@@ -53,7 +53,7 @@ export default {
   channelsAdd,
   channelsDrop,
   channelsHealthLoad,
-  channelActionsLoad,
+  channelEventsLoad,
 
   emailTemplatesLoad,
   emailTemplatesAdd,

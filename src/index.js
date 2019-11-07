@@ -33,6 +33,7 @@ class ChannexBL {
       this.RatePlans = new Collections.RatePlans(this);
       this.RateCategories = new Collections.RateCategories(this);
       this.Channels = new Collections.Channels(this);
+      this.ChannelEvents = new Collections.ChannelEvents(this);
       this.ARI = new Collections.ARI(this);
       this.CustomRates = new Collections.CustomRates(this);
       this.CustomMinStayArrivals = new Collections.CustomMinStayArrivals(this);

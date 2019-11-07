@@ -32,16 +32,6 @@ export default class Channels {
       .catch((error) => handleError(error, storage, transport));
   }
 
-  actions(filter = {}, pagination = {}, order = {}) {
-    return transport
-      .send('GET', `${ENDPOINT}/actions`, {filter, pagination, order})
-      .then(response => {
-        storage.channelActionsLoad(response.data, response.meta);
-        return response.data;
-      })
-      .catch((error) => handleError(error, storage, transport));
-  }
-
   find(id) {
     return transport
       .send('GET', `${ENDPOINT}/${id}`)
@@ -77,15 +67,6 @@ export default class Channels {
   full_sync(channel_id) {
     return transport
       .send('POST', `${ENDPOINT}/${channel_id}/full_sync`, {})
-      .then(response => {
-        return response;
-      })
-      .catch((error) => handleError(error, storage, transport));
-  }
-
-  find_action(channel_id, action_id) {
-    return transport
-      .send('GET', `${ENDPOINT}/${channel_id}/${action_id}`)
       .then(response => {
         return response;
       })

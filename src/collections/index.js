@@ -3,8 +3,9 @@ import Properties from './properties';
 import RoomTypes from './room_types';
 import RatePlans from './rate_plans';
 import RateCategories from './rate_categories';
-import Channels from './channels';
 import ARI from './ari';
+import Channels from './channels';
+import ChannelEvents from './channel_events';
 import CustomRates from './custom_rates';
 import CustomMinStayArrivals from './custom_min_stay_arrivals';
 import CustomMinStayThroughs from './custom_min_stay_throughs';
@@ -37,8 +38,9 @@ export default {
   RoomTypes,
   RatePlans,
   RateCategories,
-  Channels,
   ARI,
+  Channels,
+  ChannelEvents,
   CustomRates,
   CustomMinStayArrivals,
   CustomMinStayThroughs,
