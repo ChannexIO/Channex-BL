@@ -32,7 +32,7 @@ export default class HotelPolicies {
 
   create(attrs) {
     return transport
-      .send('POST', ENDPOINT, attrs)
+      .send('POST', ENDPOINT, { hotel_policy: attrs })
       .then(response => {
         storage.hotelPoliciesAdd(response.data);
         return response;
@@ -41,7 +41,7 @@ export default class HotelPolicies {
 
   update(attrs) {
     return transport
-      .send('PUT', `${ENDPOINT}/${attrs.id}`, {hotel_policy: attrs})
+      .send('PUT', `${ENDPOINT}/${attrs.id}`, { hotel_policy: attrs })
       .then(response => {
         storage.hotelPoliciesAdd(response.data);
         return response;

@@ -31,7 +31,7 @@ export default class CancellationPolicies {
 
   create(attrs) {
     return transport
-      .send('POST', ENDPOINT, attrs)
+      .send('POST', ENDPOINT, { cancellation_policy: attrs })
       .then(response => {
         storage.cancellationPoliciesAdd(response.data);
         return response;
@@ -40,7 +40,7 @@ export default class CancellationPolicies {
 
   update(attrs) {
     return transport
-      .send('PUT', `${ENDPOINT}/${attrs.id}`, {cancellation_policy: attrs})
+      .send('PUT', `${ENDPOINT}/${attrs.id}`, { cancellation_policy: attrs })
       .then(response => {
         storage.cancellationPoliciesAdd(response.data);
         return response;
