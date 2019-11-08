@@ -1,12 +1,13 @@
-import { CHANNEL_ACTIONS_LOAD } from '../constants';
+import { CHANNEL_EVENTS_LOAD } from '../constants';
 
 const initialState = {
   entities: null,
   meta: null
 };
+
 const ACTION_HANDLERS = {
-  [CHANNEL_ACTIONS_LOAD]: (state, action) => {
-    const entities = action.payload.channelActions.reduce((acc, el) => {
+  [CHANNEL_EVENTS_LOAD]: (state, action) => {
+    const entities = action.payload.channelEvents.reduce((acc, el) => {
       acc[el.id] = el.attributes;
       if (el.relationships) {
         Object.keys(el.relationships).forEach(key => {
@@ -23,7 +24,7 @@ const ACTION_HANDLERS = {
   }
 };
 
-export default function channelActionsReducer(state = initialState, action) {
+export default function channelEventsReducer(state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type];
 
   return handler ? handler(state, action) : state;

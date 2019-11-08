@@ -53,7 +53,7 @@ export const GROUPS_LOAD = 'GROUPS_LOAD';
 export const GROUPS_ADD = 'GROUPS_ADD';
 export const GROUPS_DROP = 'GROUPS_DROP';
 
-export const CHANNEL_ACTIONS_LOAD = 'CHANNEL_ACTIONS_LOAD';
+export const CHANNEL_EVENTS_LOAD = 'CHANNEL_EVENTS_LOAD';
 export const BOOKINGS_LOAD = 'BOOKINGS_LOAD';
 export const BOOKINGS_ADD = 'BOOKINGS_ADD';
 export const ISSUES_LOAD = 'ISSUES_LOAD';
