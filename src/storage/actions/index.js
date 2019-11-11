@@ -18,6 +18,8 @@ import {
   whiteLabelEmailSettingsDrop
 } from './white_label_email_settings_actions';
 import { tasksLoad } from './tasks_actions';
+import {taxesLoad, taxesAdd, taxesDrop} from './taxes_actions';
+import {taxSetsLoad, taxSetsAdd, taxSetsDrop} from './tax_sets_actions';
 import {groupsLoad, groupsAdd, groupsDrop} from './group_actions';
 import {bookingsLoad, bookingsAdd} from './booking_actions';
 import {issuesLoad, issuesAdd} from './issue_actions';
@@ -27,7 +29,6 @@ import {
   cancellationPoliciesAdd,
   cancellationPoliciesDrop
 } from './cancellation_policies_actions';
-import {taxSetsLoad, taxSetsAdd, taxSetsDrop} from './tax_sets_actions';
 
 export default {
   sessionAdd,
@@ -79,6 +80,14 @@ export default {
 
   tasksLoad,
 
+  taxesAdd,
+  taxesDrop,
+  taxesLoad,
+  
+  taxSetsAdd,
+  taxSetsDrop,
+  taxSetsLoad,
+
   groupsLoad,
   groupsAdd,
   groupsDrop,
@@ -95,9 +104,5 @@ export default {
 
   cancellationPoliciesLoad,
   cancellationPoliciesAdd,
-  cancellationPoliciesDrop,
-
-  taxSetsAdd,
-  taxSetsDrop,
-  taxSetsLoad
+  cancellationPoliciesDrop
 };

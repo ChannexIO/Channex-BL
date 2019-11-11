@@ -23,6 +23,7 @@ import WhiteLabelPartners from './white_label_partners';
 import WhiteLabelDomains from './white_label_domains';
 import WhiteLabelEmailSettings from './white_label_email_settings';
 import Tasks from './tasks';
+import Taxes from './taxes';
 import TaxSets from './tax_sets';
 import Groups from './groups';
 import Bookings from './bookings';
@@ -59,6 +60,7 @@ export default {
   WhiteLabelDomains,
   WhiteLabelEmailSettings,
   Tasks,
+  Taxes,
   TaxSets,
   Groups,
   Bookings,
