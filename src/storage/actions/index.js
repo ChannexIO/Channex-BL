@@ -27,6 +27,7 @@ import {
   cancellationPoliciesAdd,
   cancellationPoliciesDrop
 } from './cancellation_policies_actions';
+import {taxSetsLoad, taxSetsAdd, taxSetsDrop} from './tax_sets_actions';
 
 export default {
   sessionAdd,
@@ -94,5 +95,9 @@ export default {
 
   cancellationPoliciesLoad,
   cancellationPoliciesAdd,
-  cancellationPoliciesDrop
+  cancellationPoliciesDrop,
+
+  taxSetsAdd,
+  taxSetsDrop,
+  taxSetsLoad
 };
