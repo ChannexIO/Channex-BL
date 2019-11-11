@@ -1,5 +1,5 @@
 function extractRelationshipsFromEntity(model) {
-  Object.keys(model.relationships).forEach(key => {
+  Object.keys(model.relationships || {}).forEach(key => {
     if (Array.isArray(model.relationships[key].data)) {
       model.attributes[key] = model.relationships[key].data
         .map(el => el.attributes)
