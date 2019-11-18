@@ -24,27 +24,33 @@ export default class Taxes {
   find(id) {
     return transport
       .send('GET', `${ENDPOINT}/${id}`)
-      .then(response => {
-        storage.taxesAdd(response.data);
-        return response;
+      .then(({data}) => {
+        const { attributes } = data;
+
+        storage.taxesAdd(data);
+        return attributes;
       });
   }
 
   create(attrs) {
     return transport
       .send('POST', ENDPOINT, { tax: attrs })
-      .then(response => {
-        storage.taxesAdd(response.data);
-        return response;
+      .then(({data}) => {
+        const { attributes } = data;
+
+        storage.taxesAdd(data);
+        return attributes;
       });
   }
 
   update(attrs) {
     return transport
       .send('PUT', `${ENDPOINT}/${attrs.id}`, { tax: attrs })
-      .then(response => {
-        storage.taxesAdd(response.data);
-        return response;
+      .then(({data}) => {
+        const { attributes } = data;
+
+        storage.taxesAdd(data);
+        return attributes;
       });
   }
 

@@ -24,27 +24,33 @@ export default class TaxSets {
   find(id) {
     return transport
       .send('GET', `${ENDPOINT}/${id}`)
-      .then(response => {
-        storage.taxSetsAdd(response.data);
-        return response;
+      .then(({data}) => {
+        const { attributes } = data;
+
+        storage.taxSetsAdd(data);
+        return attributes;
       });
   }
 
   create(attrs) {
     return transport
       .send('POST', ENDPOINT, { tax_set: attrs })
-      .then(response => {
-        storage.taxSetsAdd(response.data);
-        return response;
+      .then(({data}) => {
+        const { attributes } = data;
+
+        storage.taxSetsAdd(data);
+        return attributes;
       });
   }
 
   update(attrs) {
     return transport
       .send('PUT', `${ENDPOINT}/${attrs.id}`, { tax_set: attrs })
-      .then(response => {
-        storage.taxSetsAdd(response.data);
-        return response;
+      .then(({data}) => {
+        const { attributes } = data;
+
+        storage.taxSetsAdd(data);
+        return attributes;
       });
   }
 
