@@ -83,7 +83,7 @@ export default {
   taxesAdd,
   taxesDrop,
   taxesLoad,
-  
+
   taxSetsAdd,
   taxSetsDrop,
   taxSetsLoad,
