@@ -18,6 +18,8 @@ import {
   whiteLabelEmailSettingsDrop
 } from './white_label_email_settings_actions';
 import { tasksLoad } from './tasks_actions';
+import {taxesLoad, taxesAdd, taxesDrop} from './taxes_actions';
+import {taxSetsLoad, taxSetsAdd, taxSetsDrop} from './tax_sets_actions';
 import {groupsLoad, groupsAdd, groupsDrop} from './group_actions';
 import {bookingsLoad, bookingsAdd} from './booking_actions';
 import {issuesLoad, issuesAdd} from './issue_actions';
@@ -77,6 +79,14 @@ export default {
   whiteLabelEmailSettingsDrop,
 
   tasksLoad,
+
+  taxesAdd,
+  taxesDrop,
+  taxesLoad,
+
+  taxSetsAdd,
+  taxSetsDrop,
+  taxSetsLoad,
 
   groupsLoad,
   groupsAdd,
