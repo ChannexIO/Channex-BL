@@ -62,4 +62,13 @@ export default class TaxSets {
         return response;
       });
   }
+
+  test(attrs) {
+    return transport
+      .send('POST', `${ENDPOINT}/test`, { test: attrs })
+      .then(({ data }) => {
+        const { attributes } = data;
+        return attributes;
+      });
+  }
 }
