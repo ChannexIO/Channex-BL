@@ -55,7 +55,6 @@ class ChannexBL {
       this.Taxes = new Collections.Taxes(this);
       this.TaxSets = new Collections.TaxSets(this);
       this.Bookings = new Collections.Bookings(this);
-      this.Issues = new Collections.Issues(this);
       this.PropertyUsers = new Collections.PropertyUsers(this);
       this.GroupUsers = new Collections.GroupUsers(this);
       this.HotelPolicies = new Collections.HotelPolicies(this);
