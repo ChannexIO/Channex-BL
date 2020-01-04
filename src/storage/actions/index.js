@@ -22,7 +22,6 @@ import {taxesLoad, taxesAdd, taxesDrop} from './taxes_actions';
 import {taxSetsLoad, taxSetsAdd, taxSetsDrop} from './tax_sets_actions';
 import {groupsLoad, groupsAdd, groupsDrop} from './group_actions';
 import {bookingsLoad, bookingsAdd} from './booking_actions';
-import {issuesLoad, issuesAdd} from './issue_actions';
 import {hotelPoliciesLoad, hotelPoliciesAdd, hotelPoliciesDrop} from './hotel_policies_actions';
 import {
   cancellationPoliciesLoad,
@@ -94,9 +93,6 @@ export default {
 
   bookingsLoad,
   bookingsAdd,
-
-  issuesLoad,
-  issuesAdd,
 
   hotelPoliciesLoad,
   hotelPoliciesAdd,

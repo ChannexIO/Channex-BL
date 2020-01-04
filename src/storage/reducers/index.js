@@ -20,7 +20,6 @@ import taxesReducer from './taxes_reducer';
 import taxSetsReducer from './tax_sets_reducer';
 import groupsReducer from './groups_reducer';
 import bookingsReducer from './bookings_reducer';
-import issuesReducer from './issues_reducer';
 import hotelPoliciesReducer from './hotel_policies_reducer';
 import cancellationPoliciesReducer from './cancellation_policies_reducer';
 
@@ -45,7 +44,6 @@ const rootReducer = combineReducers({
   taxSets: taxSetsReducer,
   groups: groupsReducer,
   bookings: bookingsReducer,
-  issues: issuesReducer,
   hotelPolicies: hotelPoliciesReducer,
   cancellationPolicies: cancellationPoliciesReducer
 });
