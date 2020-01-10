@@ -22,7 +22,7 @@
   "parser": "babel-eslint",
 
   "plugins": [
-    
+
   ],
 
   "rules": {
@@ -55,7 +55,6 @@
     "max-params": 0,
     "max-statements": 0,
     "new-cap": [2, { "newIsCap": true, "capIsNew": false }],
-    "newline-after-var": [2, "always"],
     "new-parens": 2,
     "no-alert": 0,
     "no-array-constructor": 2,
