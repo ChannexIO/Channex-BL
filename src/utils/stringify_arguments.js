@@ -36,7 +36,12 @@ parseArgs = function (args, prefix = null) {
   return Object
     .keys(args)
     .reduce((acc, key) => {
-      acc.push(prepareArgument(args, key, prefix));
+      const argument = prepareArgument(args, key, prefix);
+
+      if (argument) {
+        acc.push(argument);
+      }
+
       return acc;
     }, [])
     .join('&');
@@ -54,6 +59,6 @@ function stringifyArguments(args) {
   }
 
   return query;
-};
+}
 
 export default stringifyArguments;
