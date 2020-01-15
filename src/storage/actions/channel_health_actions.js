@@ -3,8 +3,8 @@ import {
 } from '../constants';
 
 function channelsHealthLoad(storage) {
-  return function (stats) {
-    storage.dispatch({type: CHANNELS_HEALTH_LOAD, payload: stats});
+  return function (stats, meta) {
+    storage.dispatch({type: CHANNELS_HEALTH_LOAD, payload: {stats, meta}});
   };
 }
 
