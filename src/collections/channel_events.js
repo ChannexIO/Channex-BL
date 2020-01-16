@@ -38,4 +38,22 @@ export default class ChannelEvents {
       })
       .catch((error) => handleError(error, storage, transport));
   }
+
+  resolveIssue(event_id, solutions) {
+    return transport
+      .send('POST', `${ENDPOINT}/${event_id}/resolve`, { solutions })
+      .then(response => {
+        return response;
+      })
+      .catch((error) => handleError(error, storage, transport));
+  }
+
+  ignoreIssue(event_id) {
+    return transport
+      .send('GET', `${ENDPOINT}/${event_id}/ignore`)
+      .then(response => {
+        return response;
+      })
+      .catch((error) => handleError(error, storage, transport));
+  }
 }
