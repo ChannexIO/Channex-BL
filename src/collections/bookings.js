@@ -17,7 +17,8 @@ export default class Bookings {
       .send('GET', `${ENDPOINT}`, {filter, pagination, order})
       .then(response => {
         storage.bookingsLoad(response.data, response.meta);
-        return response.data;
+
+        return response;
       })
       .catch((error) => handleError(error, storage, transport));
   }

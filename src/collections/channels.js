@@ -22,12 +22,12 @@ export default class Channels {
       .catch((error) => handleError(error, storage, transport));
   }
 
-  health() {
+  health(filter = {}, pagination = {}, order = {}) {
     return transport
-      .send('GET', `${ENDPOINT}/health`)
+      .send('GET', `${ENDPOINT}/health`, {filter, pagination, order})
       .then(response => {
-        storage.channelsHealthLoad(response.data);
-        return response.data;
+        storage.channelsHealthLoad(response.data, response.meta);
+        return response;
       })
       .catch((error) => handleError(error, storage, transport));
   }

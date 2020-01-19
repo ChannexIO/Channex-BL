@@ -1,18 +1,17 @@
-import {
-  CHANNELS_HEALTH_LOAD
-} from '../constants';
+import { CHANNELS_HEALTH_LOAD } from '../constants';
 
 const initialState = null;
 const ACTION_HANDLERS = {
   [CHANNELS_HEALTH_LOAD]: (state, action) => {
-    return Object.assign(
-      {},
-      action.payload
-        .reduce((acc, el) => {
-          acc[el.id] = el.attributes;
-          return acc;
-        }, {})
-    );
+    const entities = action.payload.stats.reduce((acc, el) => {
+      acc[el.id] = el.attributes;
+      return acc;
+    }, {});
+
+    return {
+      entities,
+      meta: action.payload.meta
+    };
   }
 };
 
