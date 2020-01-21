@@ -24,6 +24,15 @@ export default class RoomTypes {
       .catch((error) => handleError(error, storage, transport));
   }
 
+  options(filter = {}) {
+    return transport
+      .send('GET', ENDPOINT, { filter })
+      .then(response => {
+        return response.data;
+      })
+      .catch((error) => handleError(error, storage, transport));
+  }
+
   find(id) {
     return transport
       .send('GET', `${ENDPOINT}/${id}`)
