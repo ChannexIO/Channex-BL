@@ -22,7 +22,7 @@ export default class RatePlans {
   }
 
   options(filter = {}) {
-     return transport
+    return transport
       .send('GET', ENDPOINT, { filter })
       .then(response => {
         return response.data;
