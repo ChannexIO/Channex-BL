@@ -1,0 +1,44 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+      - development
+  pull_request:
+    branches:
+      - '*'
+jobs:
+  build:
+    name: Client App
+    env:
+      NODE_ENV: test
+      CI: true
+      NODE_PATH: src
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - uses: actions/cache@v1
+        id: node_modules_cache
+        with:
+          path: node_modules
+          key: node_modules_${{ hashFiles('yarn.lock') }}
+
+      - name: Install deps
+        run: yarn install
+        if: steps.node_modules_cache.outputs.cache-hit != 'true'
+
+      - name: Run tests
+        run: yarn test:ci
+
+      - name: Run eslint
+        uses: reviewdog/action-eslint@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-check
+          level: 'error'
+          eslint_flags: 'src/'
