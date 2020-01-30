@@ -1,4 +1,5 @@
 import handleError from '../utils/handle_error';
+import attributesExtractor from '../utils/attributes_extractor';
 
 let transport;
 let storage;
@@ -23,9 +24,9 @@ export default class RatePlans {
 
   options(filter = {}) {
     return transport
-      .send('GET', ENDPOINT, { filter })
-      .then(response => {
-        return response.data;
+      .send('GET', `${ENDPOINT}/options`, { filter })
+      .then(({ data }) => {
+        return attributesExtractor(data);
       })
       .catch((error) => handleError(error, storage, transport));
   }
