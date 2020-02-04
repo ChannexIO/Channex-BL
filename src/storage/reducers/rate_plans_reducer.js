@@ -5,6 +5,7 @@ const ACTION_HANDLERS = {
   [RATE_PLANS_LOAD]: (state, action) => {
     return action.payload.reduce((acc, el) => {
       acc[el.id] = el.attributes;
+
       if (el.relationships) {
         Object.keys(el.relationships).forEach(key => {
           acc[el.id][`${key}_id`] = el.relationships[key].data.id;

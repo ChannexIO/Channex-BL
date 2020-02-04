@@ -94,6 +94,8 @@ export default class Channels {
   }
 
   get_mapping_details(attrs) {
+    return Promise.resolve({"data":{"pricing_plan_id_dictionary":[{"id":0,"title":"Wubook Parity"}],"restriction_plan_id_dictionary":[{"id":0,"title":"Wubook Restrictions"}],"room_id_dictionary":[{"id":385240,"title":"StdSingle"},{"id":385242,"title":"Family"},{"id":385243,"title":"StdDouble"}]}});
+
     return transport
       .send('POST', `${ENDPOINT}/mapping_details`, attrs)
       .then(response => {
