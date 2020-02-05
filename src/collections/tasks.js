@@ -16,7 +16,7 @@ export default class Tasks {
       .send('GET', ENDPOINT, {filter, pagination, order})
       .then(response => {
         storage.tasksLoad(response.data, response.meta);
-        return response.data;
+        return response;
       })
       .catch((error) => handleError(error, storage, transport));
   }
