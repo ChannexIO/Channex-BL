@@ -36,8 +36,8 @@ export default class RatePlans {
                 "title":"multi occ primary",
                 "occupancy": 11,
                 "parent_rate_plan_id": null,
-                "room_type_id": "9b4aed8e-48b9-424a-940f-a789786c72e6",
-                "property_id": "1e4f791c-aa64-42cb-aa6b-2cef289c1bf1",
+                "room_type_id": "4803aecd-a0dc-46de-8788-ca8e774a460f",
+                "property_id": "0a6fb8d0-055a-4902-a819-a862bab51725",
               },
               "id":"ba67042d-cd4a-431e-a8f4-54eb4d01dff4",
               "type":"rate_plan"
@@ -46,11 +46,11 @@ export default class RatePlans {
               "attributes": {
                 "id":"fb0ecca9-0097-4d66-b53d-0fd68a530b97",
                 "sell_mode":"per_person",
-                "title":"multi occ 2",
+                "title":"multi occ",
                 "occupancy":2,
                 "parent_rate_plan_id": "ba67042d-cd4a-431e-a8f4-54eb4d01dff4",
-                "room_type_id": "9b4aed8e-48b9-424a-940f-a789786c72e6",
-                "property_id": "1e4f791c-aa64-42cb-aa6b-2cef289c1bf1",
+                "room_type_id": "4803aecd-a0dc-46de-8788-ca8e774a460f",
+                "property_id": "0a6fb8d0-055a-4902-a819-a862bab51725",
               },
               "id":"fb0ecca9-0097-4d66-b53d-0fd68a530b97",
               "type":"rate_plan"
@@ -59,11 +59,11 @@ export default class RatePlans {
               "attributes": {
                 "id":"c677aec1-af1d-4f04-83a1-8ffa2a8eaa49",
                 "sell_mode":"per_person",
-                "title":"multi occ 1",
+                "title":"multi occ",
                 "occupancy":1,
                 "parent_rate_plan_id": "ba67042d-cd4a-431e-a8f4-54eb4d01dff4",
-                "room_type_id": "9b4aed8e-48b9-424a-940f-a789786c72e6",
-                "property_id": "1e4f791c-aa64-42cb-aa6b-2cef289c1bf1",
+                "room_type_id": "4803aecd-a0dc-46de-8788-ca8e774a460f",
+                "property_id": "0a6fb8d0-055a-4902-a819-a862bab51725",
               },
               "id":"c677aec1-af1d-4f04-83a1-8ffa2a8eaa49",
               "type":"rate_plan"
@@ -72,11 +72,11 @@ export default class RatePlans {
               "attributes": {
                 "id": "2e35745d-1d82-4c72-ba8d-400bc9fd9bf8",
                 "sell_mode": "per_person",
-                "title": "multi occ 4",
+                "title": "multi occ",
                 "occupancy": 4,
                 "parent_rate_plan_id": "ba67042d-cd4a-431e-a8f4-54eb4d01dff4",
-                "room_type_id": "9b4aed8e-48b9-424a-940f-a789786c72e6",
-                "property_id": "1e4f791c-aa64-42cb-aa6b-2cef289c1bf1",
+                "room_type_id": "4803aecd-a0dc-46de-8788-ca8e774a460f",
+                "property_id": "0a6fb8d0-055a-4902-a819-a862bab51725",
               },
               "id": "2e35745d-1d82-4c72-ba8d-400bc9fd9bf8",
               "type": "rate_plan"
@@ -88,8 +88,8 @@ export default class RatePlans {
                 "title":"per_room",
                 "occupancy": 4,
                 "parent_rate_plan_id": null,
-                "room_type_id": "9b4aed8e-48b9-424a-940f-a789786c72e6",
-                "property_id": "1e4f791c-aa64-42cb-aa6b-2cef289c1bf1",
+                "room_type_id": "4803aecd-a0dc-46de-8788-ca8e774a460f",
+                "property_id": "0a6fb8d0-055a-4902-a819-a862bab51725",
               },
               "id":"1115745d-1d82-4c72-ba8d-400bc9fd9111",
               "type":"rate_plan"
