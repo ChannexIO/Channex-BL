@@ -12,12 +12,13 @@ export default class Channels {
     storage = container.storage;
   }
 
-  list(filters = {}) {
+  list(filter = {}, pagination = {}, order = {}) {
     return transport
-      .send('GET', ENDPOINT, {filter: filters})
+      .send('GET', ENDPOINT, {filter, pagination, order})
       .then(response => {
         storage.channelsLoad(response.data);
-        return response.data;
+
+        return response;
       })
       .catch((error) => handleError(error, storage, transport));
   }
