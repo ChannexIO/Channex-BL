@@ -1,4 +1,5 @@
 import handleError from '../utils/handle_error';
+import attributesExtractor from '../utils/attributes_extractor';
 
 let transport;
 let storage;
@@ -20,6 +21,15 @@ export default class RoomTypes {
           entities: response.data.map(el => el.attributes),
           meta: response.meta
         };
+      })
+      .catch((error) => handleError(error, storage, transport));
+  }
+
+  options(filter = {}) {
+    return transport
+      .send('GET', `${ENDPOINT}/options`, { filter })
+      .then(({ data }) => {
+        return attributesExtractor(data);
       })
       .catch((error) => handleError(error, storage, transport));
   }
