@@ -95,6 +95,103 @@ export default class Channels {
   }
 
   get_mapping_details(attrs) {
+    return Promise.resolve({
+      "data": {
+        "pricing_type": "Standard",
+        "rooms": [{
+          "id": 586818903,
+          "max_children": 0,
+          "rates": [{
+            "id": 16385048,
+            "max_persons": 2,
+            "price_1": true,
+            "title": "non-refundable rate"
+          }, {
+            "id": 16385046,
+            "max_persons": 2,
+            "price_1": true,
+            "title": "standard rate"
+          }, {
+            "id": 16385047,
+            "max_persons": 2,
+            "price_1": true,
+            "title": "special rate"
+          }],
+          "title": "Double Room"
+        }, {
+          "id": 586818902,
+          "max_children": 0,
+          "rates": [{
+            "id": 16385046,
+            "max_persons": 1,
+            "price_1": false,
+            "title": "standard rate"
+          }, {
+            "id": 16385048,
+            "max_persons": 1,
+            "price_1": false,
+            "title": "non-refundable rate"
+          }, {
+            "id": 16385047,
+            "max_persons": 1,
+            "price_1": false,
+            "title": "special rate"
+          }],
+          "title": "Single Room"
+        }, {
+          "id": 586818904,
+          "max_children": 0,
+          "rates": [{
+            "id": 16385047,
+            "max_persons": 3,
+            "price_1": true,
+            "title": "special rate"
+          }, {
+            "id": 16385048,
+            "max_persons": 3,
+            "price_1": true,
+            "title": "non-refundable rate"
+          }, {
+            "id": 16385046,
+            "max_persons": 3,
+            "price_1": true,
+            "title": "standard rate"
+          }],
+          "title": "Suite"
+        }]
+      }
+    });
+
+    return Promise.resolve({"data": {
+      // "pricing_type": "Standard | OBP | Derived",
+      "pricing_type": "standard",
+      "rooms": [
+        {
+          "id": "586818904",
+          "title": "Suite",
+          "rates": [
+            {
+              "id": "16385047",
+              "title": "special rate",
+              "max_persons": "3",
+              "price_1": false
+            },
+          ]
+        }, {
+          "id": "586818905",
+          "title": "Lux",
+          "rates": [
+            {
+              "id": "16385047",
+              "title": "standard rate",
+              "max_persons": "3",
+              "price_1": true
+            }
+          ]
+        }
+      ]
+    }});
+
     return transport
       .send('POST', `${ENDPOINT}/mapping_details`, attrs)
       .then(response => {
@@ -104,6 +201,13 @@ export default class Channels {
   }
 
   test_connection(attrs) {
+    // return Promise.resolve({
+    //   data: {
+    //     success: true,
+    //     errors: 0,
+    //   }
+    // });
+
     return transport
       .send('POST', `${ENDPOINT}/test_connection`, attrs)
       .then(response => {
