@@ -16,6 +16,27 @@ export default class Channels {
     return transport
       .send('GET', ENDPOINT, {filter, pagination, order})
       .then(response => {
+        // response.data = [{
+        //   "attributes":{
+        //     "actions":null,
+        //     "channel":"Airbnb",
+        //     "id":"c8e791ca-64b8-48c8-834e-56e34a1929d5",
+        //     "is_active":false,
+        //     "properties":["0a6fb8d0-055a-4902-a819-a862bab51725"],
+        //     "rate_plans":[],
+        //     rate_params: {
+        //       room_id: {position: 0, title: "Room", type: "integer"}
+        //     },
+        //     "settings":{"code":"42hc0n8e4mlp4dui2hh9cqadb","mappingSettings":{}},
+        //     "title":"Asadassds"
+        //   },
+        //   "id":"c8e791ca-64b8-48c8-834e-56e34a1929d5",
+        //   "relationships":{
+        //     "group":{"data":{"id":"524849e3-2f13-4244-a582-3dace775678b","type":"group"}},
+        //     "properties":{"data":[{"id":"0a6fb8d0-055a-4902-a819-a862bab51725","type":"property"}]}
+        //   },
+        //   "type":"channel"
+        // }];
         storage.channelsLoad(response.data);
 
         return response;
@@ -37,6 +58,28 @@ export default class Channels {
     return transport
       .send('GET', `${ENDPOINT}/${id}`)
       .then(response => {
+        // response.data = {
+        //   "id":"c8e791ca-64b8-48c8-834e-56e34a1929d5",
+        //   "attributes":{
+        //     "actions":null,
+        //     "channel":"Airbnb",
+        //     "id":"c8e791ca-64b8-48c8-834e-56e34a1929d5",
+        //     "is_active":false,
+        //     "properties":["0a6fb8d0-055a-4902-a819-a862bab51725"],
+        //     "rate_plans":[],
+        //     "settings":{"code":"42hc0n8e4mlp4dui2hh9cqadb","mappingSettings":{}},
+        //     rate_params: {
+        //       room_id: {position: 0, title: "Room", type: "integer"}
+        //     },
+        //     "title":"Asadassds"
+        //   },
+        //   "relationships":{
+        //     "group":{"data":{"id":"524849e3-2f13-4244-a582-3dace775678b","type":"group"}},
+        //     "properties":{"data":[{"id":"0a6fb8d0-055a-4902-a819-a862bab51725","type":"property"}]}
+        //   },
+        //   "type":"channel"
+        // };
+        //
         storage.channelsAdd(response.data);
         return response;
       })
@@ -89,12 +132,33 @@ export default class Channels {
     return transport
       .send('GET', `${ENDPOINT}/list`)
       .then(response => {
+        response.data[1].rate_params = {
+          room_id: {
+            position: 0,
+            title: "Room",
+            type: "integer"
+          }
+        };
+
         return response;
       })
       .catch((error) => handleError(error, storage, transport));
   }
 
   get_mapping_details(attrs) {
+    console.log("get_mapping_details stub");
+
+    const ROOM = 10;
+
+    return Promise.resolve({
+      data: {
+        room_id_dictionary: [...Array(ROOM)].map((_, i) => ({
+          id: i,
+          title: `room_id_${i}`
+        }))
+      }
+    });
+
     return transport
       .send('POST', `${ENDPOINT}/mapping_details`, attrs)
       .then(response => {
