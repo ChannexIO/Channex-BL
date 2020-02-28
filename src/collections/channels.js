@@ -48,7 +48,7 @@ export default class Channels {
       .send('POST', ENDPOINT, {channel: attrs})
       .then(response => {
         storage.channelsAdd(response.data);
-        (new RatePlans({transport, storage})).list();
+
         return response;
       })
       .catch((error) => handleError(error, storage, transport));
@@ -59,7 +59,7 @@ export default class Channels {
       .send('PUT', `${ENDPOINT}/${attrs.id}`, {channel: attrs})
       .then(response => {
         storage.channelsAdd(response.data);
-        (new RatePlans({transport, storage})).list();
+
         return response;
       })
       .catch((error) => handleError(error, storage, transport));
@@ -79,7 +79,7 @@ export default class Channels {
       .send('DELETE', `${ENDPOINT}/${attrs.id}`)
       .then(response => {
         storage.channelsDrop(attrs);
-        (new RatePlans({transport, storage})).list();
+
         return response;
       })
       .catch((error) => handleError(error, storage, transport));
