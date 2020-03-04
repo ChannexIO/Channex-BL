@@ -133,10 +133,10 @@ export default class Channels {
       .send('GET', `${ENDPOINT}/list`)
       .then(response => {
         response.data[1].rate_params = {
-          room_id: {
+          listing_id: {
             position: 0,
-            title: "Room",
-            type: "integer"
+            title: "Listing",
+            type: "integer",
           }
         };
 
@@ -152,9 +152,9 @@ export default class Channels {
 
     return Promise.resolve({
       data: {
-        room_id_dictionary: [...Array(ROOM)].map((_, i) => ({
+        listings: [...Array(ROOM)].map((_, i) => ({
           id: i,
-          title: `room_id_${i}`
+          title: `listing_id_${i}`
         }))
       }
     });
