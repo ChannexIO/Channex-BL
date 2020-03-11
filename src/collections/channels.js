@@ -110,4 +110,49 @@ export default class Channels {
       })
       .catch((error) => handleError(error, storage, transport));
   }
+
+  publish_listing(listing_id) {
+    return transport
+      .send('POST', `${ENDPOINT}/listing/${listing_id}/publish`)
+      .then(response => {
+        return response;
+      })
+      .catch(error => handleError(error, storage, transport));
+  }
+
+  get_listing_pricing(listing_id) {
+    return transport
+      .send('GET', `${ENDPOINT}/listing/${listing_id}/pricing`)
+      .then(response => {
+        return response;
+      })
+      .catch(error => handleError(error, storage, transport));
+  }
+
+  update_listing_pricing(listing_id, attrs) {
+    return transport
+      .send('PUT', `${ENDPOINT}/listing/${listing_id}/pricing`, {listing_pricing: attrs})
+      .then(response => {
+        return response;
+      })
+      .catch(error => handleError(error, storage, transport));
+  }
+
+  get_listing_availability(listing_id) {
+    return transport
+      .send('GET', `${ENDPOINT}/listing/${listing_id}/availability`)
+      .then(response => {
+        return response;
+      })
+      .catch(error => handleError(error, storage, transport));
+  }
+
+  update_listing_availability(listing_id, attrs) {
+    return transport
+      .send('PUT', `${ENDPOINT}/listing/${listing_id}/availability`, {listing_availability: attrs})
+      .then(response => {
+        return response;
+      })
+      .catch(error => handleError(error, storage, transport));
+  }
 }
