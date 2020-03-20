@@ -1,4 +1,3 @@
-import RatePlans from './rate_plans';
 import handleError from '../utils/handle_error';
 
 let transport;
