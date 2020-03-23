@@ -111,47 +111,38 @@ export default class Channels {
       .catch((error) => handleError(error, storage, transport));
   }
 
-  publish_listing(listing_id) {
+  airbnb_publish_listing(channel_id, listing_id) {
     return transport
-      .send('POST', `${ENDPOINT}/listing/${listing_id}/publish`)
+      .send('PUT', `${ENDPOINT}/${channel_id}/execute/publish`, { listing_id })
       .then(response => {
-        return response;
+        return response.data;
       })
       .catch(error => handleError(error, storage, transport));
   }
 
-  get_listing_pricing(listing_id) {
+  airbnb_unpublish_listing(channel_id, listing_id) {
     return transport
-      .send('GET', `${ENDPOINT}/listing/${listing_id}/pricing`)
+      .send('PUT', `${ENDPOINT}/${channel_id}/execute/unpublish`, { listing_id })
       .then(response => {
-        return response;
+        return response.data;
       })
       .catch(error => handleError(error, storage, transport));
   }
 
-  update_listing_pricing(listing_id, attrs) {
+  airbnb_update_listing_pricing(channel_id, attrs) {
     return transport
-      .send('PUT', `${ENDPOINT}/listing/${listing_id}/pricing`, {listing_pricing: attrs})
+      .send('PUT', `${ENDPOINT}/${channel_id}/execute/update_pricing_settings`, attrs)
       .then(response => {
-        return response;
+        return response.data;
       })
       .catch(error => handleError(error, storage, transport));
   }
 
-  get_listing_availability(listing_id) {
+  airbnb_update_listing_availability(channel_id, attrs) {
     return transport
-      .send('GET', `${ENDPOINT}/listing/${listing_id}/availability`)
+      .send('PUT', `${ENDPOINT}/${channel_id}/execute/update_availability_rule`, attrs)
       .then(response => {
-        return response;
-      })
-      .catch(error => handleError(error, storage, transport));
-  }
-
-  update_listing_availability(listing_id, attrs) {
-    return transport
-      .send('PUT', `${ENDPOINT}/listing/${listing_id}/availability`, {listing_availability: attrs})
-      .then(response => {
-        return response;
+        return response.data;
       })
       .catch(error => handleError(error, storage, transport));
   }
