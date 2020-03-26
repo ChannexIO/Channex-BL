@@ -110,4 +110,49 @@ export default class Channels {
       })
       .catch((error) => handleError(error, storage, transport));
   }
+
+  airbnb_publish_listing(channel_id, listing_id) {
+    return transport
+      .send('PUT', `${ENDPOINT}/${channel_id}/execute/publish`, { listing_id })
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => handleError(error, storage, transport));
+  }
+
+  airbnb_unpublish_listing(channel_id, listing_id) {
+    return transport
+      .send('PUT', `${ENDPOINT}/${channel_id}/execute/unpublish`, { listing_id })
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => handleError(error, storage, transport));
+  }
+
+  airbnb_update_listing_pricing(channel_id, attrs) {
+    return transport
+      .send('PUT', `${ENDPOINT}/${channel_id}/execute/update_pricing_setting`, attrs)
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => handleError(error, storage, transport));
+  }
+
+  airbnb_update_listing_availability(channel_id, attrs) {
+    return transport
+      .send('PUT', `${ENDPOINT}/${channel_id}/execute/update_availability_rule`, attrs)
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => handleError(error, storage, transport));
+  }
+
+  airbnb_get_channel_rate_plan(channel_rate_plan_id) {
+    return transport
+      .send('GET', `channel_rate_plans/${channel_rate_plan_id}`)
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => handleError(error, storage, transport));
+  }
 }
