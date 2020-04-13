@@ -25,6 +25,7 @@ import WhiteLabelEmailSettings from './white_label_email_settings';
 import Tasks from './tasks';
 import Taxes from './taxes';
 import TaxSets from './tax_sets';
+import Geocoding from './geocoding';
 import Groups from './groups';
 import Bookings from './bookings';
 import Raw from './raw';
@@ -61,6 +62,7 @@ export default {
   Tasks,
   Taxes,
   TaxSets,
+  Geocoding,
   Groups,
   Bookings,
   Raw,
