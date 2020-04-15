@@ -1,3 +1,6 @@
+import handleError from '../utils/handle_error';
+import attributesExtractor from '../utils/attributes_extractor';
+
 let transport;
 let storage;
 const ENDPOINT = 'cancellation_policies';
@@ -18,6 +21,15 @@ export default class CancellationPolicies {
           meta: response.meta
         };
       });
+  }
+
+  options(filter = {}) {
+    return transport
+      .send('GET', `${ENDPOINT}/options`, { filter })
+      .then(({ data }) => {
+        return attributesExtractor(data);
+      })
+      .catch((error) => handleError(error, storage, transport));
   }
 
   find(id) {
