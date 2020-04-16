@@ -35,7 +35,6 @@ export default class RatePlans {
     return transport
       .send('GET', `${ENDPOINT}/${id}`)
       .then(response => {
-        storage.ratePlansAdd(response.data);
         return response;
       })
       .catch((error) => handleError(error, storage, transport));
